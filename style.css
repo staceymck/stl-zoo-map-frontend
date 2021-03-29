@@ -1,0 +1,50 @@
+:root {
+  --main-font-color: #090909;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Heebo', sans-serif;
+  font-weight: 300;
+  color: var(--main-font-color);
+}
+
+.page-container {
+  width: auto;
+  padding: 3% 10%; 
+  min-height: 90vh;
+  margin-bottom: -50px;
+}
+
+/* Links */
+a {
+  color: var(--main-font-color);
+  text-decoration: none;
+}
+
+.link-block a {
+  margin: .75rem;
+}
+
+/* Main Footer */
+footer {
+  height: 50px;
+  text-align: right;
+  color: var(--primary);
+  width: auto;
+  padding: 0% 10%;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+.push {
+  height: 50px;
+}
