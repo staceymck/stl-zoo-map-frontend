@@ -1,5 +1,5 @@
 :root {
-  --main-font-color: #090909;
+  --main-font-color: #272323;
 }
 
 html, body {
@@ -47,4 +47,51 @@ footer a:hover {
 
 .push {
   height: 50px;
+}
+
+/* Site Header */
+nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0 auto;
+  padding-bottom: 1rem;
+}
+
+#logo img {
+  height: 90px;
+  padding-right: 2rem;
+}
+
+nav h1, nav h2 {
+  margin: 0;
+}
+
+nav h1 {
+  font-size: 1.75rem;
+}
+
+nav h2 {
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+
+/* Smaller Screens */
+@media (max-width: 620px) {
+
+  nav {
+    justify-content: center;
+    text-align: center;
+  }
+
+  #logo img {
+    padding: initial;
+  }
+
+  footer {
+    text-align: center;
+    font-size: .8rem;
+  }
 }
