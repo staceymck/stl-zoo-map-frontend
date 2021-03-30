@@ -1,5 +1,7 @@
 :root {
   --main-font-color: #272323;
+  --main-font: 'Heebo', sans-serif;
+  --main-font-weight: 300;
 }
 
 html, body {
@@ -10,8 +12,8 @@ html, body {
 }
 
 body {
-  font-family: 'Heebo', sans-serif;
-  font-weight: 300;
+  font-family: var(--main-font);
+  font-weight: var(--main-font-weight);
   color: var(--main-font-color);
 }
 
@@ -56,7 +58,7 @@ nav {
   flex-wrap: wrap;
   align-items: center;
   margin: 0 auto;
-  padding-bottom: 1rem;
+  padding-bottom: .5rem;
 }
 
 #logo img {
@@ -76,6 +78,25 @@ nav h2 {
   font-size: 1rem;
   font-weight: 300;
 }
+
+nav h2 span {
+  padding-left: .5rem;
+}
+
+/* Buttons */
+.text-button {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  padding: 0;
+}
+
+.text-button:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 
 
 /* Smaller Screens */
