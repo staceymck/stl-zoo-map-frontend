@@ -7,18 +7,21 @@
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;500;800&display=swap" rel="stylesheet">
-  <title>Document</title>
+  <title>STL Zoo Map</title>
 </head>
 <body>
   <div class="page-container">
 
     <nav>
       <div id="logo">
-        <img src="images/logo.png" alt="logo">
+        <img src="images/logo.png" alt="logo"> <!--would making this a button be more accessible since it has an action attached?-->
       </div>
       <div>
-        <h1>ST. LOUIS ZOO VIRTUAL MAP</h1>
-        <h2>Select a zone to explore<span> | </span><span><button class="text-button">Comments</button></span></h2>
+        <span id="site-name">ST. LOUIS ZOO VIRTUAL MAP</span>
+        <span id="site-subtitle">Select a zone to explore
+          <span> | </span>
+          <span><button class="text-button">Comments</button></span>
+        </span>
       </div>
     </nav>
 
@@ -89,6 +92,7 @@
 
   <script type="text/javascript" src="src/zone.js"></script>
   <script type="text/javascript" src="src/mapZone.js"></script>
+  <script type="text/javascript" src="src/zoneApi.js"></script>
   <script type="text/javascript" src="index.js"></script>
 </body>
 </html>

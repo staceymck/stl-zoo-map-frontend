@@ -91,20 +91,22 @@ nav {
   padding-right: 2rem;
 }
 
-nav h1, nav h2 {
+nav span {
   margin: 0;
 }
 
-nav h1 {
+#site-name {
   font-size: 1.75rem;
+  font-weight: 800;
+  display: block;
 }
 
-nav h2 {
+#site-subtitle {
   font-size: 1rem;
   font-weight: 300;
 }
 
-nav h2 span {
+nav #site-subtitle span {
   padding-left: .5rem;
 }
 
@@ -200,7 +202,6 @@ nav h2 span {
 
 /* Main Display - Selected Zone View */
 #main-display.zone-selected {
-  grid-template-rows: minmax(20vh, 400px);
 }
 
 #main-display.zone-selected #zone-info {
@@ -228,5 +229,9 @@ nav h2 span {
   footer {
     text-align: center;
     font-size: .8rem;
+  }
+
+  #main-display.zone-selected #zone-info {
+    padding: .5rem;
   }
 }
