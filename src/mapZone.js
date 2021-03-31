@@ -9,7 +9,7 @@ class MapZone {
     this.zoneId = this.element.dataset["id"];
 
     this.element.addEventListener('click', this.handleClick);
-    console.log(this.zoneId)
+
     MapZone.all.push(this);
   }
 
@@ -17,9 +17,9 @@ class MapZone {
     MapZone.all.forEach(zone => {
       zone.element.classList.add("inactive");
     });
+
     this.element.classList.remove("inactive");
-    
-    const zone = Zone.all.find(zone => this.zoneId === zone.id);
-    zone.attachToDom();
+    const zoneInfo = Zone.all.find(zone => parseInt(this.zoneId, 10) === zone.id);
+    zoneInfo.attachToDom();
   }   
 }
