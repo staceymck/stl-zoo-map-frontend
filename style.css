@@ -2,6 +2,29 @@
   --main-font-color: #272323;
   --main-font: 'Heebo', sans-serif;
   --main-font-weight: 300;
+
+
+  
+
+  /* Map colors */
+  --main-background: #F5F5F5;
+
+  --red-rocks-primary: #e52753;
+  --red-rocks-dark: #B41B41;
+  --historic-hill-primary: #819b4c;
+  --historic-hill-dark: #647C3B;
+  --discovery-corner-primary: #57518e;
+  --discovery-corner-dark: #463F73;
+  --lakeside-crossing-primary: #c99110;
+  --lakeside-crossing-dark: #9E741E;
+  --rivers-edge-primary: #bc460f;
+  --rivers-edge-dark: #913618;
+  --the-wild-primary: #548bc9;
+  --the-wild-dark: #436FA1;
+
+  --inactive-primary: #C2C2C2;
+  --inactive-dark: #A2A2A2
+
 }
 
 html, body {
@@ -19,7 +42,7 @@ body {
 
 .page-container {
   width: auto;
-  padding: 3% 10%; 
+  padding: 3% 0%; 
   min-height: 90vh;
   margin-bottom: -50px;
 }
@@ -59,6 +82,8 @@ nav {
   align-items: center;
   margin: 0 auto;
   padding-bottom: .5rem;
+  width: auto;
+  padding: 0% 10% 2% 10%; 
 }
 
 #logo img {
@@ -90,6 +115,7 @@ nav h2 span {
   color: inherit;
   font: inherit;
   padding: 0;
+  outline: none;
 }
 
 .text-button:hover{
@@ -97,7 +123,49 @@ nav h2 span {
   cursor: pointer;
 }
 
+/* Map */
+#map {
+  background-color: var(--main-background);
+  width: auto;
+  padding: 3% 10%; 
+}
 
+#map svg .inactive {
+  fill: var(--inactive-primary);
+}
+
+.cls-1:not(.active):hover {
+  fill: var(--rivers-edge-dark);
+}
+
+.cls-3:not(.active):hover {
+  fill: var(--red-rocks-dark);
+}
+
+.cls-4:not(.active):hover {
+  fill: var(--discovery-corner-dark);
+}
+
+.cls-5:not(.active):hover {
+  fill: var(--the-wild-dark);
+}
+
+.cls-6:not(.active):hover {
+  fill: var(--lakeside-crossing-dark);
+}
+
+.cls-7:not(.active):hover {
+  fill: var(--historic-hill-dark);
+}
+
+#map .inactive:hover {
+  fill: var(--inactive-dark);
+}
+
+#map .map-zone:not(.active):hover  {
+  stroke: var(--main-background);
+  stroke-width: .3rem;
+}
 
 /* Smaller Screens */
 @media (max-width: 620px) {
