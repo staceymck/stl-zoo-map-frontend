@@ -3,10 +3,7 @@
   --main-font: 'Heebo', sans-serif;
   --main-font-weight: 300;
 
-
-  
-
-  /* Map colors */
+/* Map colors */
   --main-background: #F5F5F5;
 
   --red-rocks-primary: #e52753;
@@ -201,13 +198,15 @@ nav #site-subtitle span {
 }
 
 /* Main Display - Selected Zone View */
-#main-display.zone-selected {
-}
-
 #main-display.zone-selected #zone-info {
   padding: .5rem 3rem 1rem 4rem;
   overflow-y: scroll;
   display: block;
+}
+
+#zone-info h2 {
+  font-size: 1.25rem;
+  font-weight: 500;
 }
 
 #main-display.zone-selected img {
@@ -233,5 +232,9 @@ nav #site-subtitle span {
 
   #main-display.zone-selected #zone-info {
     padding: .5rem;
+  }
+
+  #zone-info ul {
+    padding-left: 1.25rem;
   }
 }
