@@ -7,8 +7,8 @@ class Zone {
     this.name = name;
     this.description = description;
 
-    const nameAsClass = this.name.replace(/'/g, "").replace(/ /g, '-').toLowerCase();
-    this.mapElement = document.querySelector(`#${nameAsClass} .map-zone`);
+    const nameAsId = this.name.replace(/'/g, "").replace(/ /g, '-').toLowerCase();
+    this.mapElement = document.querySelector(`#${nameAsId}`);
     this.mapElement.dataset["id"] = id;
 
     Zone.all.push(this);
@@ -17,6 +17,8 @@ class Zone {
   attachToDom() {
     Zone.container.parentElement.classList.add("zone-selected");
     Zone.container.innerHTML = "";
+
+    //Zone.container.style.backgroundColor = ;
 
     const name = document.createElement("h1");
     name.innerText = this.name;
