@@ -3,8 +3,8 @@ class MapZone {
   static all = [];
   static mapContainer = document.querySelector("#map");
 
-  constructor(zoneClass) {
-    this.element = document.querySelector(`.${zoneClass}`)
+  constructor(mapGroup) {
+    this.element = document.querySelector(`#${mapGroup.id} .map-zone`)
     this.name = this.element.parentElement.id;
     this.zoneId = this.element.dataset["id"];
 
@@ -16,9 +16,11 @@ class MapZone {
   handleClick = (e) => {
     MapZone.all.forEach(zone => {
       zone.element.classList.add("inactive");
+      zone.element.classList.remove("active");
     });
 
     this.element.classList.remove("inactive");
+    this.element.classList.add("active")
     const zoneInfo = Zone.all.find(zone => parseInt(this.zoneId, 10) === zone.id);
     zoneInfo.attachToDom();
   }   
