@@ -17,6 +17,7 @@ class Zone {
   attachToDom() {
     Zone.container.parentElement.classList.add("zone-selected");
     Zone.container.innerHTML = "";
+
     const name = document.createElement("h1");
     name.innerText = this.name;
     Zone.container.appendChild(name);
@@ -24,6 +25,22 @@ class Zone {
     const desc = document.createElement("p");
     desc.innerText = this.description;
     Zone.container.appendChild(desc);
+
+    const attractions = Attraction.all.filter(att => parseInt(att.zone_id, 10) === this.id)
+    if (attractions.length !== 0) {
+      this.renderAttractionList(attractions);
+    }
   }
 
+  renderAttractionList(attractions) {
+    const header = document.createElement("h2");
+    const list = document.createElement("ul");
+
+    attractions.forEach(att => {
+      list.appendChild(att.renderAsLi());
+    })
+
+    Zone.container.appendChild(header);
+    Zone.container.appendChild(list);
+  }
 }
