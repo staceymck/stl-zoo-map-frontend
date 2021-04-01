@@ -133,31 +133,31 @@ nav #site-subtitle span {
   fill: var(--inactive-primary);
 }
 
-.cls-1:not(.active):hover {
+#rivers-edge:not(.active):hover {
   fill: var(--rivers-edge-dark);
 }
 
-.cls-3:not(.active):hover {
+#red-rocks:not(.active):hover {
   fill: var(--red-rocks-dark);
 }
 
-.cls-4:not(.active):hover {
+#discovery-corner:not(.active):hover {
   fill: var(--discovery-corner-dark);
 }
 
-.cls-5:not(.active):hover {
+#the-wild:not(.active):hover {
   fill: var(--the-wild-dark);
 }
 
-.cls-6:not(.active):hover {
+#lakeside-crossing:not(.active):hover {
   fill: var(--lakeside-crossing-dark);
 }
 
-.cls-7:not(.active):hover {
+#historic-hill:not(.active):hover {
   fill: var(--historic-hill-dark);
 }
 
-#map .inactive:hover {
+#map .map-zone.inactive:hover {
   fill: var(--inactive-dark);
 }
 
