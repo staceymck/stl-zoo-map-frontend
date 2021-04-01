@@ -213,6 +213,46 @@ nav #site-subtitle span {
   display: none;
 }
 
+/* Exhibit Container Display */
+#exhibits {
+  padding: 1% 10% 2% 10%;
+}
+#exhibits h3 {
+  font-size: 2rem;
+  font-weight: 300;
+  display: none;
+}
+
+/* Exhibit Cards */
+#card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-rows: auto;
+  grid-gap: 3rem;
+}
+
+.exhibit-card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+}
+
+.exhibit-card {
+  padding: 1rem;
+  border: #E2E2E2;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 2px;
+  box-shadow: 2px 5px 5px #E2E2E2;
+}
+
+.exhibit-card h4 {
+  font-size: 1.5rem;
+  margin: 1rem 0 .5rem 0;
+  text-align: center;
+  font-weight: 400;
+}
+
 /* Smaller Screens */
 @media (max-width: 620px) {
 
