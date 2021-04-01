@@ -8,7 +8,7 @@ class MapZone {
     this.name = this.element.parentElement.id;
     this.zoneId = this.element.dataset["id"];
 
-    this.element.addEventListener('click', this.handleClick);
+    this.element.parentElement.addEventListener('click', this.handleClick);
 
     MapZone.all.push(this);
   }
