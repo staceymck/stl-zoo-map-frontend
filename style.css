@@ -236,8 +236,12 @@ nav #site-subtitle span {
   margin-top: 1rem;
 }
 
+.fa-chevron-down {
+  font-size: 1.5rem;
+}
+
 /* Exhibit Cards */
-#card-container {
+#exhibit-card-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-template-rows: auto;
@@ -265,6 +269,45 @@ nav #site-subtitle span {
   margin: 1rem 0 .5rem 0;
   text-align: center;
   font-weight: 400;
+}
+
+/* Reviews */
+#reviews {
+  display: none;
+  padding: 1% 10% 2% 10%;
+}
+
+#review-card-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.5rem;
+}
+
+.review-card {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 1fr;
+  grid-gap: 1rem;
+  padding: 1rem;
+  border: #E2E2E2;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 2px;
+  box-shadow: 2px 5px 5px #E2E2E2;
+}
+
+.review-card img {
+  max-width: 90%;
+  object-fit: cover;
+}
+
+.fa-paw {
+  padding-right: .25rem;
+  color: #C2C2C2; 
+}
+
+.fa-paw.checked {
+  color: #c99110;
 }
 
 /* Smaller Screens */
@@ -299,5 +342,14 @@ nav #site-subtitle span {
 
   #zone-info ul {
     padding-left: 1.25rem;
+  }
+  
+  .review-card {
+    grid-template-columns: 100%;
+  }
+
+  .review-card img {
+    margin: auto;
+    max-width: 100%;
   }
 }
