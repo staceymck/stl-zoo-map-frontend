@@ -12,6 +12,8 @@ attractionApi.getAttractions();
 zoneApi.setupZonesWithMap(mapGroups);
 exhibitApi.getExhibits();
 
+const reviewButton = document.querySelector("#view-reviews").addEventListener("click", Review.displayReviews)
+
 // Reset map colors and home image on logo click
 logo.addEventListener('click', e => {
   MapZone.all.forEach(zone => zone.element.classList.remove("inactive"));
