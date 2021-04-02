@@ -5,7 +5,7 @@ class Attraction {
   constructor({id, name, zone_id}) {
     this.id = id;
     this.name = name;
-    this.zone_id = zone_id;
+    this.zoneId = zone_id;
 
     Attraction.all.push(this)
   }
