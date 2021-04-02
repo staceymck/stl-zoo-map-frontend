@@ -21,7 +21,6 @@
 
   --inactive-primary: #C2C2C2;
   --inactive-dark: #A2A2A2
-
 }
 
 html, body {
@@ -216,14 +215,6 @@ nav #site-subtitle span {
   padding: .25rem 2rem .25rem 200rem;
 }
 
-/*#main-display.zone-selected #zone-info:before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  margin: 0 598rem 0 0;
-  background: green;
-}*/
-
 #zone-info h2 {
   font-size: 1.25rem;
   font-weight: 500;
@@ -293,8 +284,17 @@ nav #site-subtitle span {
     font-size: .8rem;
   }
 
+  #main-display.zone-selected {
+    padding: initial;
+  }
+
   #main-display.zone-selected #zone-info {
-    padding: .5rem;
+    margin: initial;
+    padding: 1rem;
+  }
+
+  #exhibits h3 {
+    text-align: center;
   }
 
   #zone-info ul {
