@@ -16,6 +16,8 @@ class Exhibit {
     this.element.id = `exhibit-${id}`
 
     this.element.addEventListener("click", this.handleClick);
+
+    Exhibit.all.push(this);
   }
 
   render() { //figure out alt text for already loaded images and user submitted images 
