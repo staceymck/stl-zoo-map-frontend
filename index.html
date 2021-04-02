@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;800&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/d68af3fd0a.js" crossorigin="anonymous"></script>
   <title>STL Zoo Map</title>
 </head>
 <body>
@@ -17,14 +18,19 @@
         <img src="images/logo.png" alt="logo"> <!--would making this a button be more accessible since it has an action attached?-->
       </div>
       <div>
-        <span id="site-name">ST. LOUIS ZOO VIRTUAL MAP</span>
+        <span id="site-name" tabIndex="-1">ST. LOUIS ZOO VIRTUAL MAP</span>
         <span id="site-subtitle">Select a zone to explore
           <span> | </span>
-          <span><button class="text-button">Comments</button></span>
+          <span><button id="view-reviews" class="text-button">Reviews</button></span>
         </span>
       </div>
     </nav>
 
+    <div id="reviews">
+      <h1>Reviews</h1>
+      <h2>Add a review</h2>
+      <div id="review-card-container"></div>
+    </div>
     <div id="main-display">
       <div id="zone-info">
       </div>
@@ -75,10 +81,10 @@
     </div>
     
     <div id="exhibits">
-      <h3>Exhibits</h3>
-      <div id="card-container"></div>
+      <h3>Meet the animals <i class="fas fa-chevron-down"></i></h3>
+      <div id="exhibit-card-container"></div>
     </div>
-
+    <button id="top">Top</button>
     <div class="push"></div>
 
   </div>
@@ -89,7 +95,8 @@
     </div>
   </footer>
 
-
+  <script type="text/javascript" src="src/review.js"></script>
+  <script type="text/javascript" src="src/reviewApi.js"></script>
   <script type="text/javascript" src="src/exhibit.js"></script>
   <script type="text/javascript" src="src/exhibitApi.js"></script>
   <script type="text/javascript" src="src/attraction.js"></script>
