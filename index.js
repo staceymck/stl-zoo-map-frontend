@@ -1,7 +1,18 @@
-// Reset map colors and home image on logo click
+
 const logo = document.querySelector("#logo");
 const mainDisplay = document.querySelector("#main-display");
+const port = "http://localhost:3000";
+const mapGroups = document.querySelectorAll("g");
+const zoneApi = new ZoneApi(port);
+const attractionApi = new AttractionApi(port);
+const exhibitApi = new ExhibitApi(port);
+const reviewApi = new ReviewApi(port);
 
+attractionApi.getAttractions();
+zoneApi.setupZonesWithMap(mapGroups);
+exhibitApi.getExhibits();
+
+// Reset map colors and home image on logo click
 logo.addEventListener('click', e => {
   MapZone.all.forEach(zone => zone.element.classList.remove("inactive"));
   mainDisplay.classList.remove("zone-selected")
