@@ -4,12 +4,13 @@ class Review {
   static reviewContainer = document.querySelector("#review-card-container");
   static ratingPaws = []
 
-  constructor({id, username, content, review_image, rating}) {
+  constructor({id, username, content, review_image, rating, date}) {
     this.id = id;
     this.username = username;
     this.content = content;
     this.imageLink = review_image["cloudinary"];
     this.rating = rating;
+    this.date = date;
 
     this.element = document.createElement('div');
     this.element.classList.add("review-card");
@@ -31,21 +32,27 @@ class Review {
     this.element.innerHTML = "";
 
     const img = document.createElement("img");
-    const div = document.createElement("div");
+    const contentDiv = document.createElement("div");
+    const flexDiv = document.createElement("div");
+    const date = document.createElement("p");
     const user = document.createElement("h3");
     const content = document.createElement("p");
     const rating = this.displayRating();
    
-    img.src = this.imageLink;
+    img.src = this.imageLink; //or one of the default images - could handle this with a separate 'displayImage' function
     user.innerText = this.username;
     content.innerText = this.content;
+    date.innerText = this.date;
+    flexDiv.classList.add("flex-row");
     
-    div.appendChild(user);
-    div.appendChild(rating);
-    div.appendChild(content);
+    flexDiv.appendChild(user);
+    flexDiv.appendChild(date);
+    contentDiv.appendChild(flexDiv);
+    contentDiv.appendChild(rating);
+    contentDiv.appendChild(content);
 
     this.element.appendChild(img);
-    this.element.appendChild(div);
+    this.element.appendChild(contentDiv);
   }
 
   attachToDom() {
@@ -61,7 +68,6 @@ class Review {
     Review.reviewContainer.innerHTML = "";
 
     if(Object.keys(Review.all).length === 0) {
-      console.log("hill");
       const reviewApi = new ReviewApi("http://localhost:3000") //how to make this dynamic?
       reviewApi.getReviews();
     } else {
