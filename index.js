@@ -16,7 +16,8 @@ exhibitApi.getExhibits();
 const viewReviewsButton = document.querySelector("#view-reviews");
 viewReviewsButton.addEventListener("click", Review.displayReviews);
 
-
+const addReviewButton = document.querySelector("#add-review");
+addReviewButton.addEventListener("click", Review.handleClick);
 
 // Reset map colors and home image on logo click
 logo.addEventListener('click', e => {
