@@ -4,7 +4,6 @@
   --main-font-weight: 300;
 
 /* Map colors */
-  --main-background: #F5F5F5;
 
   --red-rocks-primary: #e52753;
   --red-rocks-dark: #B41B41;
@@ -19,8 +18,9 @@
   --the-wild-primary: #548bc9;
   --the-wild-dark: #436FA1;
 
-  --inactive-primary: #C2C2C2;
-  --inactive-dark: #A2A2A2;
+  --gray-primary: #C2C2C2;
+  --gray-dark: #A2A2A2;
+  --gray-light: #F5F5F5;
 }
 
 html, body {
@@ -109,22 +109,63 @@ nav #site-subtitle span {
 
 /* Buttons */
 .text-button {
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
   background: none;
   border: none;
-  color: inherit;
-  font: inherit;
   padding: 0;
   outline: none;
 }
 
-.text-button:hover{
+.text-button:hover {
   text-decoration: underline;
   cursor: pointer;
 }
 
+.button-primary {
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  background-color: var(--gray-light);
+  padding: .5rem 1rem;
+  border: solid;
+  border-color: var(--gray-primary);
+  border-radius: 6px;
+  border-width: 1px;
+  transition-duration: 0.2s;
+}
+
+.button-primary:hover {
+  background-color: var(--gray-primary);
+}
+
+#to-top-btn {
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  outline: none;
+  font-size: 2rem;
+  color: var(--gray-primary);
+  transition-duration: 0.2s;
+}
+
+#to-top-btn:hover {
+  color: var(--gray-dark);
+}
+
+#to-top {
+  display: none;
+  padding: 0 10% 0 10%;
+  text-align: right;
+}
+
+
+
 /* Map */
 #map {
-  background-color: var(--main-background);
+  background-color: var(--gray-light);
   width: auto;
   padding: 3% 10%; 
 }
@@ -134,7 +175,7 @@ nav #site-subtitle span {
 }
 
 #map svg .inactive {
-  fill: var(--inactive-primary);
+  fill: var(--gray-primary);
 }
 
 #rivers-edge:not(.active):hover {
@@ -162,11 +203,11 @@ nav #site-subtitle span {
 }
 
 #map .map-zone.inactive:hover {
-  fill: var(--inactive-dark);
+  fill: var(--gray-dark);
 }
 
 #map .map-zone:not(.active):hover  {
-  stroke: var(--main-background);
+  stroke: var(--gray-light);
   stroke-width: .3rem;
 }
 
@@ -310,7 +351,7 @@ nav #site-subtitle span {
 
 .fa-paw {
   padding-right: .25rem;
-  color: #C2C2C2; 
+  color: var(--gray-primary)
 }
 
 .fa-paw.checked {
@@ -363,7 +404,7 @@ form {
 .close {
   float: right;
   font-size: 1.5rem;
-  color: #A2A2A2;
+  color: var(--gray-dark);
 }
 
 /* Smaller Screens */
