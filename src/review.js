@@ -2,6 +2,8 @@ class Review {
 
   static all = {};
   static reviewContainer = document.querySelector("#review-card-container");
+  static newReviewModal = document.querySelector("#review-modal");
+
   static ratingPaws = []
 
   constructor({id, username, content, review_image, rating, date}) {
@@ -14,7 +16,6 @@ class Review {
 
     this.element = document.createElement('div');
     this.element.classList.add("review-card");
-    //this.element.id = `review-${id}`;
     Review.all[this.id] = this;
   }
 
@@ -72,12 +73,63 @@ class Review {
       reviewApi.getReviews();
     } else {
       Review.renderReviews();
-      console.log("hi")
     }
 
     document.querySelector("#exhibits").style.display = "none";
     document.querySelector("#reviews").style.display = "block";
     document.querySelector("#main-display").style.display = "none";
   }
+
+  //is this the best place for this code?
+
+  static handleClick = (e) => {
+    if (e.target === addReviewButton) {
+      Review.newReviewModal.style.display = "block";
+      Review.renderModalContent();
+    } else if (e.target === document.querySelector("#close-review-modal")) {
+      Review.newReviewModal.style.display = "none";
+    }
+  }
+
+  static handleSubmit = (e) => {
+      e.preventDefault();
+      const reviewApi = new ReviewApi("http://localhost:3000") //how to make this dynamic?
+      reviewApi.createReview(e);
+  }
+
+  static renderModalContent = () => {
+    Review.newReviewModal.innerHTML = "";
+
+    const modalContent = document.createElement("div");
+    modalContent.id = "review-modal-content";
+    modalContent.classList.add("modal-content");
+
+    modalContent.innerHTML = `
+      <button id="close-review-modal" class="close text-button">&times;</button>
+      <h2>Add a review</h2>
+      <form id="new-review">
+        <div class="grid">
+          <div>
+            <label for="username">Display name:*</label><br>
+            <input type="text" name="username" id="review-username"><br>
+            <label for="rating">Rating:*</label><br>
+            <input type="number" name="rating" id="review-rating"><br>
+            <label for="image">Upload image:</label><br>
+            <input type="file" name="image" accept="image/*"><br>
+          </div>
+          <div>
+            <label for="content">Share your experience:*</label><br>
+            <textarea id="review-content" name="content" rows="10" cols="20" wrap="hard" maxlength="1000" placeholder="1000 character limit"></textarea><br>
+          </div>
+        </div>
+        <input type="submit" value="Save">
+      </form>
+    `
+    Review.newReviewModal.appendChild(modalContent);
+    document.querySelector("#new-review").addEventListener("submit", Review.handleSubmit);
+    document.querySelector("#close-review-modal").addEventListener("click", Review.handleClick);
+  }
+
+
 }
 
