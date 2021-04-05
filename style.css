@@ -85,6 +85,7 @@ nav {
 #logo img {
   height: 90px;
   padding-right: 2rem;
+  cursor: pointer;
 }
 
 nav span {
