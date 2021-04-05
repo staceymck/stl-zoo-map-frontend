@@ -12,7 +12,11 @@ attractionApi.getAttractions();
 zoneApi.setupZonesWithMap(mapGroups);
 exhibitApi.getExhibits();
 
-const reviewButton = document.querySelector("#view-reviews").addEventListener("click", Review.displayReviews)
+//Is this the best place for this?
+const viewReviewsButton = document.querySelector("#view-reviews");
+viewReviewsButton.addEventListener("click", Review.displayReviews);
+
+
 
 // Reset map colors and home image on logo click
 logo.addEventListener('click', e => {
@@ -22,10 +26,11 @@ logo.addEventListener('click', e => {
   document.querySelector("#reviews").style.display = "none";
   document.querySelector("#exhibits h3").style.display = "none";
   document.querySelector("#exhibit-card-container").innerHTML = "";
+  document.querySelector("#to-top").style.display = "none";
 })
 
 //Scroll to top button
-document.querySelector("#top").addEventListener("click", (e) => {
+document.querySelector("#to-top-btn").addEventListener("click", (e) => {
   window.scroll({
     top: 0,
     left: 0,

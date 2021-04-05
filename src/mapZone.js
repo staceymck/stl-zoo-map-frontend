@@ -31,5 +31,6 @@ class MapZone {
     document.querySelector("#exhibit-card-container").innerHTML = "";
     const exhibits = Exhibit.all.filter(exhibit => parseInt(this.zoneId, 10) === exhibit.zoneId);
     exhibits.forEach(e => e.attachToDom());
+    document.querySelector("#to-top").style.display = "block";
   }   
 }

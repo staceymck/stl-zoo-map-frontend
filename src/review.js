@@ -78,6 +78,7 @@ class Review {
     document.querySelector("#exhibits").style.display = "none";
     document.querySelector("#reviews").style.display = "block";
     document.querySelector("#main-display").style.display = "none";
+    document.querySelector("#to-top").style.display = "block";
   }
 
   //is this the best place for this code?
