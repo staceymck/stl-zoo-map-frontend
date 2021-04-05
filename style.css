@@ -20,7 +20,7 @@
   --the-wild-dark: #436FA1;
 
   --inactive-primary: #C2C2C2;
-  --inactive-dark: #A2A2A2
+  --inactive-dark: #A2A2A2;
 }
 
 html, body {
@@ -281,6 +281,7 @@ nav #site-subtitle span {
   display: flex;
   flex-direction: column;
   row-gap: 1.5rem;
+  padding-top: 1rem;
 }
 
 .review-card {
@@ -301,6 +302,11 @@ nav #site-subtitle span {
   object-fit: cover;
 }
 
+.flex-row {
+  display: flex;
+  justify-content: space-between;
+}
+
 .fa-paw {
   padding-right: .25rem;
   color: #C2C2C2; 
@@ -308,6 +314,55 @@ nav #site-subtitle span {
 
 .fa-paw.checked {
   color: #c99110;
+}
+
+.modal {
+  display: none;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  padding-top: 20vh;
+  position: fixed;
+  overflow: auto;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content {
+  background-color: #fff;
+  width: 50%;
+  margin: 0 auto;
+  padding: 1rem;
+  border: #E2E2E2;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 2px;
+}
+
+form input, textarea {
+  width: 100%;
+  padding: .5rem .25rem;
+  margin-bottom: 1rem;
+}
+
+form > div.grid {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  grid-template-rows: 1fr;
+  grid-gap: 2rem;
+}
+ 
+form {
+  text-align: left;
+  padding: 1rem;
+}
+
+.close {
+  float: right;
+  font-size: 1.5rem;
+  color: #A2A2A2;
 }
 
 /* Smaller Screens */
