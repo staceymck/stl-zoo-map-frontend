@@ -123,7 +123,7 @@ class Review {
             <textarea id="review-content" name="content" rows="10" cols="20" wrap="hard" maxlength="1000" placeholder="1000 character limit"></textarea><br>
           </div>
         </div>
-        <input type="submit" value="Save">
+        <input type="submit" value="Save" class="button-primary">
       </form>
     `
     Review.newReviewModal.appendChild(modalContent);
