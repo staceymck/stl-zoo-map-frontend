@@ -1,4 +1,3 @@
-
 const logo = document.querySelector("#logo");
 const mainDisplay = document.querySelector("#main-display");
 const port = "http://localhost:3000";
@@ -25,7 +24,7 @@ logo.addEventListener('click', e => {
   mainDisplay.classList.remove("zone-selected")
   mainDisplay.style.display = "";
   document.querySelector("#reviews").style.display = "none";
-  document.querySelector("#exhibits h3").style.display = "none";
+  document.querySelector("#exhibits").style.display = "none";
   document.querySelector("#exhibit-card-container").innerHTML = "";
   document.querySelector("#to-top").style.display = "none";
 })

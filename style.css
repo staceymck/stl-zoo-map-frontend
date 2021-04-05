@@ -268,13 +268,13 @@ nav #site-subtitle span {
 
 /* Exhibit Container Display */
 #exhibits {
+  display: none;
   padding: 1% 10% 2% 10%;
 }
 
 #exhibits h3 {
   font-size: 2rem;
   font-weight: 300;
-  display: none;
   margin-top: 1rem;
 }
 
