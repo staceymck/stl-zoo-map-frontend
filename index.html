@@ -26,10 +26,12 @@
       </div>
     </nav>
 
-
     <div id="reviews">
-      <h1>Reviews</h1>
-      <button id="add-review" class="text-button">Add a review</button>
+      <div class="flex-row">
+        <h1>Reviews</h1>
+        <button id="add-review" class="button-primary">Add a review</button>
+      </div>
+      <span>Sort by rating: </span><button id="highest-rating" class="text-button">Highest</button><span> | </span><button id="lowest-rating" class="text-button">Lowest</button>
       <div id="review-modal" class="modal">
       </div>
       <div id="review-card-container"></div>

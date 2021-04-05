@@ -347,6 +347,8 @@ nav #site-subtitle span {
 .flex-row {
   display: flex;
   justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
 }
 
 .fa-paw {
@@ -389,7 +391,7 @@ form input, textarea {
   margin-bottom: 1rem;
 }
 
-form > div.grid {
+.grid {
   display: grid;
   grid-template-columns: 2fr 3fr;
   grid-template-rows: 1fr;
