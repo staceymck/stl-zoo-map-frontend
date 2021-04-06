@@ -9,9 +9,8 @@ class ReviewApi {
     .then(resp => resp.json())
     .then(data => {
       data.forEach(reviewData => {
-        //console.log(reviewData)
         const r = new Review(reviewData);
-        r.attachToDom();
+        Review.displayReviews();
       })
     })
   }
