@@ -1,10 +1,8 @@
 class Review {
 
-  static all = {};
+  static all = [];
   static reviewContainer = document.querySelector("#review-card-container");
   static newReviewModal = document.querySelector("#review-modal");
-
-  static ratingPaws = []
 
   constructor({id, username, content, review_image, rating, date}) {
     this.id = id;
@@ -40,7 +38,7 @@ class Review {
     const content = document.createElement("p");
     const rating = this.displayRating();
    
-    img.src = this.imageLink; //or one of the default images - could handle this with a separate 'displayImage' function
+    img.src = this.imageLink;
     user.innerText = this.username;
     content.innerText = this.content;
     date.innerText = this.date;
@@ -61,18 +59,26 @@ class Review {
     Review.reviewContainer.appendChild(this.element)
   }
 
-  static renderReviews = () => {
-    Object.values(Review.all).forEach(review => review.attachToDom());
+  static renderReviews = (sortFilter) => {
+    if (sortFilter === "highest-rating") {
+      const sortedAll = Review.all.sort((a, b) => b.rating - a.rating);
+      sortedAll.forEach(review => review.attachToDom());
+    } else if(sortFilter === "lowest-rating") {
+      const sortedAll = Review.all.sort((a, b) => a.rating - b.rating);
+      sortedAll.forEach(review => review.attachToDom());
+    } else {
+      Review.all.forEach(review => review.attachToDom());
+    } 
   }
 
-  static displayReviews = () => {
+  static displayReviews = (sortFilter) => {
     Review.reviewContainer.innerHTML = "";
 
-    if(Object.keys(Review.all).length === 0) {
+    if(Review.all.length === 0) {
       const reviewApi = new ReviewApi("http://localhost:3000") //how to make this dynamic?
       reviewApi.getReviews();
     } else {
-      Review.renderReviews();
+      Review.renderReviews(sortFilter);
     }
 
     document.querySelector("#exhibits").style.display = "none";
@@ -84,17 +90,22 @@ class Review {
   //is this the best place for this code?
 
   static handleClick = (e) => {
-    if (e.target === addReviewButton) {
+    //e.preventDefault();
+    if (e.target === document.querySelector("#add-review")) {
       Review.newReviewModal.style.display = "block";
       Review.renderModalContent();
     } else if (e.target === document.querySelector("#close-review-modal")) {
       Review.newReviewModal.style.display = "none";
+    } else if (e.target === document.querySelector("#highest-rating")) {
+      Review.displayReviews("highest-rating");
+    } else if (e.target === document.querySelector("#lowest-rating")) {
+      Review.displayReviews("lowest-rating");
     }
   }
 
   static handleSubmit = (e) => {
       e.preventDefault();
-      const reviewApi = new ReviewApi("http://localhost:3000") //how to make this dynamic?
+      let reviewApi = new ReviewApi("http://localhost:3000") //how to make this dynamic?
       reviewApi.createReview(e);
   }
 
@@ -114,13 +125,19 @@ class Review {
             <label for="username">Display name:*</label><br>
             <input type="text" name="username" id="review-username"><br>
             <label for="rating">Rating:*</label><br>
-            <input type="number" name="rating" id="review-rating"><br>
+            <select name="rating" id="review-rating">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
             <label for="image">Upload image:</label><br>
-            <input type="file" name="image" accept="image/*"><br>
+            <input type="file" name="image" accept="image/jpeg, image/png" id="review-image"><br>
           </div>
           <div>
             <label for="content">Share your experience:*</label><br>
-            <textarea id="review-content" name="content" rows="10" cols="20" wrap="hard" maxlength="1000" placeholder="1000 character limit"></textarea><br>
+            <textarea id="review-content" name="content" rows="10" cols="20" wrap="soft" maxlength="1000" placeholder="1000 character limit"></textarea><br>
           </div>
         </div>
         <input type="submit" value="Save" class="button-primary">
@@ -128,9 +145,22 @@ class Review {
     `
     Review.newReviewModal.appendChild(modalContent);
     document.querySelector("#new-review").addEventListener("submit", Review.handleSubmit);
-    document.querySelector("#close-review-modal").addEventListener("click", Review.handleClick);
+    //document.querySelector("#close-review-modal").addEventListener("click", Review.handleClick);
+    //document.querySelector("#rating-selector").addEventListener("click", Review.selectRating);
   }
 
+
+  // static colorRatingPaws = (e) => {
+  //   const clickedPawValue = parseInt(e.target.title);
+  //   let i=0;
+  //   while (i<=clickedPawValue) {
+  //     const pawId = i.toString()
+  //   }
+  // }
+
+  // calculateRating = () => {
+
+  // }
 
 }
 
