@@ -4,17 +4,24 @@ class Review {
   static reviewContainer = document.querySelector("#review-card-container");
   static newReviewModal = document.querySelector("#review-modal");
 
-  constructor({id, username, content, review_image, rating, date}) {
+  constructor({id, username, content, review_image, rating, created_at}) {
     this.id = id;
     this.username = username;
     this.content = content;
     this.imageLink = review_image ? review_image["cloudinary"] : `/images/review-images/review-img-${Review.setImgNum(1, 6)}.png`;
     this.rating = rating;
-    this.date = date;
+    this.created_at = created_at;
+    this.formattedDateTime = Review.formatDateTime(created_at);
 
     this.element = document.createElement('div');
     this.element.classList.add("review-card");
     Review.all[this.id] = this;
+  }
+
+  static formatDateTime = (dateTime) => {
+    const d = new Date(dateTime);
+    const formattedDateTime = d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + " - " + d.toLocaleDateString();
+    return formattedDateTime;
   }
 
   static setImgNum = (min, max) => {
@@ -46,7 +53,7 @@ class Review {
     img.src = this.imageLink;
     user.innerText = this.username;
     content.innerText = this.content;
-    date.innerText = this.date;
+    date.innerText = this.formattedDateTime;
     flexDiv.classList.add("flex-row");
     
     flexDiv.appendChild(user);
@@ -72,7 +79,8 @@ class Review {
       const sortedAll = Review.all.sort((a, b) => a.rating - b.rating);
       sortedAll.forEach(review => review.attachToDom());
     } else {
-      Review.all.forEach(review => review.attachToDom());
+      const sortedAll = Review.all.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+      sortedAll.forEach(review => review.attachToDom());
     } 
   }
 
@@ -153,7 +161,6 @@ class Review {
     //document.querySelector("#close-review-modal").addEventListener("click", Review.handleClick);
     //document.querySelector("#rating-selector").addEventListener("click", Review.selectRating);
   }
-
 
   // static colorRatingPaws = (e) => {
   //   const clickedPawValue = parseInt(e.target.title);
