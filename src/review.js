@@ -88,7 +88,7 @@ class Review {
     Review.reviewContainer.innerHTML = "";
 
     if(Review.all.length === 0) {
-      const reviewApi = new ReviewApi("http://localhost:3000") //how to make this dynamic?
+      const reviewApi = new ReviewApi(port)
       reviewApi.getReviews();
     } else {
       Review.renderReviews(sortFilter);
@@ -118,7 +118,7 @@ class Review {
 
   static handleSubmit = (e) => {
       e.preventDefault();
-      let reviewApi = new ReviewApi("http://localhost:3000") //how to make this dynamic?
+      let reviewApi = new ReviewApi(port)
       reviewApi.createReview(e);
   }
 
