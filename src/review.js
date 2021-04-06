@@ -2,7 +2,7 @@ class Review {
 
   static all = [];
   static reviewContainer = document.querySelector("#review-card-container");
-  static newReviewModal = document.querySelector("#review-modal");
+  static reviewModal = document.querySelector("#review-modal");
 
   constructor({id, username, content, review_image, rating, created_at}) {
     this.id = id;
@@ -105,10 +105,10 @@ class Review {
   static handleClick = (e) => {
     //e.preventDefault();
     if (e.target === document.querySelector("#add-review")) {
-      Review.newReviewModal.style.display = "block";
+      Review.reviewModal.style.display = "block";
       Review.renderModalContent();
     } else if (e.target === document.querySelector("#close-review-modal")) {
-      Review.newReviewModal.style.display = "none";
+      Review.reviewModal.style.display = "none";
     } else if (e.target === document.querySelector("#highest-rating")) {
       Review.displayReviews("highest-rating");
     } else if (e.target === document.querySelector("#lowest-rating")) {
@@ -123,7 +123,7 @@ class Review {
   }
 
   static renderModalContent = () => {
-    Review.newReviewModal.innerHTML = "";
+    Review.reviewModal.innerHTML = "";
 
     const modalContent = document.createElement("div");
     modalContent.id = "review-modal-content";
@@ -156,7 +156,7 @@ class Review {
         <input type="submit" value="Save" class="button-primary">
       </form>
     `
-    Review.newReviewModal.appendChild(modalContent);
+    Review.reviewModal.appendChild(modalContent);
     document.querySelector("#new-review").addEventListener("submit", Review.handleSubmit);
     //document.querySelector("#close-review-modal").addEventListener("click", Review.handleClick);
     //document.querySelector("#rating-selector").addEventListener("click", Review.selectRating);
