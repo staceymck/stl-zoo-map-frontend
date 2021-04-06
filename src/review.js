@@ -162,6 +162,19 @@ class Review {
     //document.querySelector("#rating-selector").addEventListener("click", Review.selectRating);
   }
 
+  static handleSuccessfulReview = () => {
+    const modalContent = document.querySelector("#review-modal-content");
+    modalContent.innerHTML = "";
+
+    const successMsg = document.createElement("h2");
+    successMsg.innerText = "Thanks for the review!";
+    modalContent.appendChild(successMsg);
+    setTimeout(() => {
+      Review.reviewModal.style.display = "none";
+      Review.displayReviews();
+    }, 3000)
+  }
+
   // static colorRatingPaws = (e) => {
   //   const clickedPawValue = parseInt(e.target.title);
   //   let i=0;
