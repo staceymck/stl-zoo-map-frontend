@@ -39,7 +39,7 @@ class ReviewApi {
     .then(res => res.json())
     .then(data => {
       new Review(data)
-      //would I need to re-render the reviews page?
+      Review.handleSuccessfulReview();
     })
     .catch(error => {
       alert("Unable to process request");
