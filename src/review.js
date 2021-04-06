@@ -8,13 +8,18 @@ class Review {
     this.id = id;
     this.username = username;
     this.content = content;
-    this.imageLink = review_image["cloudinary"];
+    this.imageLink = review_image ? review_image["cloudinary"] : `/images/review-images/review-img-${Review.setImgNum(1, 6)}.png`;
     this.rating = rating;
     this.date = date;
 
     this.element = document.createElement('div');
     this.element.classList.add("review-card");
     Review.all[this.id] = this;
+  }
+
+  static setImgNum = (min, max) => {
+    let x = Math.random() * (max-min + 1);
+    return Math.floor(x) + min;
   }
 
   displayRating() {
