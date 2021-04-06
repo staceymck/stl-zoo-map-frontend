@@ -9,6 +9,7 @@ class ReviewApi {
     .then(resp => resp.json())
     .then(data => {
       data.forEach(reviewData => {
+        //console.log(reviewData)
         const r = new Review(reviewData);
         r.attachToDom();
       })
@@ -16,17 +17,16 @@ class ReviewApi {
   }
 
   createReview = () => {
-    //const formData = new FormData(e.target);
     const imageFile = document.querySelector("#review-image").files[0];
     
     const formData = new FormData();
     formData.append('review[username]', document.querySelector("#review-username").value);
     formData.append('review[rating]', document.querySelector("#review-rating").value);
     formData.append('review[content]', document.querySelector("#review-content").value);
-    formData.append('review[image]', imageFile, imageFile.name); 
-
-    console.log(formData);
-
+    if(imageFile) {
+      formData.append('review[image]', imageFile, imageFile.name); 
+    }
+    
     const configObj = {
       method: "POST",
       headers: {
