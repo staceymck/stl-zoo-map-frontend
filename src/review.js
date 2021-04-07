@@ -15,7 +15,7 @@ class Review {
 
     this.element = document.createElement('div');
     this.element.classList.add("review-card");
-    Review.all[this.id] = this;
+    Review.all.push(this);
   }
 
   static formatDateTime = (dateTime) => {
@@ -100,10 +100,7 @@ class Review {
     document.querySelector("#to-top").style.display = "block";
   }
 
-  //is this the best place for this code?
-
   static handleClick = (e) => {
-    //e.preventDefault();
     if (e.target === document.querySelector("#add-review")) {
       Review.reviewModal.style.display = "block";
       Review.renderModalContent();
@@ -158,8 +155,6 @@ class Review {
     `
     Review.reviewModal.appendChild(modalContent);
     document.querySelector("#new-review").addEventListener("submit", Review.handleSubmit);
-    //document.querySelector("#close-review-modal").addEventListener("click", Review.handleClick);
-    //document.querySelector("#rating-selector").addEventListener("click", Review.selectRating);
   }
 
   static handleSuccessfulReview = () => {
@@ -174,18 +169,5 @@ class Review {
       Review.displayReviews();
     }, 3000)
   }
-
-  // static colorRatingPaws = (e) => {
-  //   const clickedPawValue = parseInt(e.target.title);
-  //   let i=0;
-  //   while (i<=clickedPawValue) {
-  //     const pawId = i.toString()
-  //   }
-  // }
-
-  // calculateRating = () => {
-
-  // }
-
 }
 
