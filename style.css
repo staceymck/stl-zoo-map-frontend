@@ -155,10 +155,13 @@ nav .site-subtitle span {
   color: var(--gray-dark);
 }
 
-.to-top {
-  display: none;
+.to-top { 
   padding: 0 10% 0 10%;
   text-align: right;
+}
+
+.js-to-top {
+  display: none;
 }
 
 /* Map */
@@ -236,7 +239,7 @@ nav .site-subtitle span {
   height: 100%;
 }
 
-.main-display .zone-info {
+.js-main-display .zone-info {
   display: none;
 }
 
@@ -260,14 +263,17 @@ nav .site-subtitle span {
   font-weight: 500;
 }
 
-.main-display.zone-selected img {
+.js-main-display.zone-selected img {
   display: none;
 }
 
 /* Exhibit Container Display */
 .exhibits {
-  display: none;
   padding: 1% 10% 2% 10%;
+}
+
+.js-exhibits {
+  display: none;
 }
 
 .exhibits h3 {
@@ -313,8 +319,11 @@ nav .site-subtitle span {
 
 /* Reviews */
 .reviews {
-  display: none;
   padding: 1% 10% 2% 10%;
+}
+
+.js-reviews {
+  display: none;
 }
 
 .review-card-container {

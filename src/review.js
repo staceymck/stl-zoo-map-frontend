@@ -1,8 +1,8 @@
 class Review {
 
   static all = [];
-  static reviewContainer = document.querySelector(".review-card-container");
-  static reviewModal = document.querySelector(".review-modal");
+  static reviewContainer = document.querySelector(".js-review-card-container");
+  static reviewModal = document.querySelector(".js-modal");
 
   constructor({id, username, content, review_image, rating, created_at}) {
     this.id = id;
@@ -94,21 +94,21 @@ class Review {
       Review.renderReviews(sortFilter);
     }
 
-    document.querySelector(".exhibits").style.display = "none";
-    document.querySelector(".reviews").style.display = "block";
-    document.querySelector(".main-display").style.display = "none";
-    document.querySelector(".to-top").style.display = "block";
+    document.querySelector(".js-exhibits").style.display = "none";
+    document.querySelector(".js-reviews").style.display = "block";
+    document.querySelector(".js-main-display").style.display = "none";
+    document.querySelector(".js-to-top").style.display = "block";
   }
 
   static handleClick = (e) => {
-    if (e.target === document.querySelector(".add-review")) {
+    if (e.target === document.querySelector(".js-add-review-btn")) {
       Review.reviewModal.style.display = "block";
       Review.renderModalContent();
-    } else if (e.target === document.querySelector("#close-review-modal")) {
+    } else if (e.target === document.querySelector(".js-close-modal")) {
       Review.reviewModal.style.display = "none";
-    } else if (e.target === document.querySelector(".highest-rating")) {
+    } else if (e.target === document.querySelector(".js-sort-high-low")) {
       Review.displayReviews("highest-rating");
-    } else if (e.target === document.querySelector("#lowest-rating")) {
+    } else if (e.target === document.querySelector(".js-sort-low-high")) {
       Review.displayReviews("lowest-rating");
     }
   }
@@ -123,13 +123,13 @@ class Review {
     Review.reviewModal.innerHTML = "";
 
     const modalContent = document.createElement("div");
-    modalContent.id = "review-modal-content";
     modalContent.classList.add("modal-content");
+    modalContent.classList.add("js-modal-content");
 
     modalContent.innerHTML = `
-      <button id="close-review-modal" class="close text-button">&times;</button>
+      <button class="js-close-modal close text-button">&times;</button>
       <h2>Add a review</h2>
-      <form id="new-review">
+      <form class="js-review-form">
         <div class="grid">
           <div>
             <label for="username">Display name:*</label><br>
@@ -154,11 +154,11 @@ class Review {
       </form>
     `
     Review.reviewModal.appendChild(modalContent);
-    document.querySelector("#new-review").addEventListener("submit", Review.handleSubmit);
+    document.querySelector(".js-review-form").addEventListener("submit", Review.handleSubmit);
   }
 
   static handleSuccessfulReview = () => {
-    const modalContent = document.querySelector("#review-modal-content");
+    const modalContent = document.querySelector(".js-modal-content");
     modalContent.innerHTML = "";
 
     const successMsg = document.createElement("h2");

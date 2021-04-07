@@ -3,12 +3,12 @@ const zoneApi = new ZoneApi(port);
 const attractionApi = new AttractionApi(port);
 const exhibitApi = new ExhibitApi(port);
 
-const logo = document.querySelector(".logo");
-const mainDisplay = document.querySelector(".main-display");
-const mapGroups = document.querySelectorAll("g");
-const viewReviewsButton = document.querySelector(".view-reviews");
-const reviewsContainer = document.querySelector(".reviews");
-const toTopIcon = document.querySelector(".to-top-btn");
+const logo = document.querySelector(".js-logo");
+const mainDisplay = document.querySelector(".js-main-display");
+const mapGroups = document.querySelectorAll(".js-map-group");
+const viewReviewsButton = document.querySelector(".js-view-reviews-btn");
+const reviewsContainer = document.querySelector(".js-reviews");
+const toTopIcon = document.querySelector(".js-to-top-btn");
 
 //Get core data and setup map
 attractionApi.getAttractions();
@@ -21,10 +21,10 @@ renderHomeView = () => {
   mainDisplay.classList.remove("zone-selected")
   
   mainDisplay.style.display = "";
-  document.querySelector(".reviews").style.display = "none";
-  document.querySelector(".exhibits").style.display = "none";
-  document.querySelector(".exhibit-card-container").innerHTML = "";
-  document.querySelector(".to-top").style.display = "none";
+  document.querySelector(".js-reviews").style.display = "none";
+  document.querySelector(".js-exhibits").style.display = "none";
+  document.querySelector(".js-exhibit-card-container").innerHTML = "";
+  document.querySelector(".js-to-top").style.display = "none";
 }
 
 //Set event listeners on already-present DOM elements
@@ -39,6 +39,6 @@ toTopIcon.addEventListener("click", (e) => {
     behavior: 'smooth'
   })
   setTimeout(() => {
-    document.querySelector(".site-name").focus()
+    document.querySelector(".js-site-name").focus()
   }, 2000)
 })

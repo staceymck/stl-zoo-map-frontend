@@ -1,7 +1,7 @@
 class MapZone {
 
   static all = [];
-  static mapContainer = document.querySelector("#map");
+  static mapContainer = document.querySelector(".js-map");
 
   constructor(mapGroup) {
     this.element = document.querySelector(`#${mapGroup.id} .map-zone`)
@@ -26,13 +26,13 @@ class MapZone {
     zoneInfo.attachToDom();
 
     //Display exhibits
-    document.querySelector(".exhibits").style.display = "block"
-    document.querySelector(".exhibit-card-container").innerHTML = "";
+    document.querySelector(".js-exhibits").style.display = "block"
+    document.querySelector(".js-exhibit-card-container").innerHTML = "";
 
     const exhibits = Exhibit.all.filter(exhibit => parseInt(this.zoneId, 10) === exhibit.zoneId);
     exhibits.forEach(e => e.attachToDom());
 
     //Display button to get to top of page
-    document.querySelector(".to-top").style.display = "block";
+    document.querySelector(".js-to-top").style.display = "block";
   }   
 }

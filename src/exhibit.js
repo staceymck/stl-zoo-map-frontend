@@ -1,7 +1,7 @@
 class Exhibit {
 
   static all = [];
-  static exhibitContainer = document.querySelector(".exhibit-card-container");
+  static exhibitContainer = document.querySelector(".js-exhibit-card-container");
 
   constructor({id, name, description, zone_id, exhibit_image, species_fact}) {
     this.id = id;
@@ -36,7 +36,7 @@ class Exhibit {
     this.element.appendChild(img);
     this.element.appendChild(h4);
     this.element.appendChild(p);
-    this.element.classList.add("front");
+    this.element.classList.add("js-front");
   }
 
   attachToDom() {
@@ -48,16 +48,16 @@ class Exhibit {
   handleClick = (e) => {
     const card = this.element;
 
-    if(card.classList.contains("front")) {
-      card.classList.remove("front");
-      card.classList.add("back");
+    if(card.classList.contains("js-front")) {
+      card.classList.remove("js-front");
+      card.classList.add("js-back");
 
       card.querySelector("h4").innerText = "Did you know?";
       card.querySelector("p").innerText = this.fact;
     }
     else {
-      card.classList.remove("back");
-      card.classList.add("front");
+      card.classList.remove("js-back");
+      card.classList.add("js-front");
       card.querySelector("h4").innerText = this.name;
       card.querySelector("p").innerText = this.description;
     }
