@@ -5,7 +5,10 @@ class ZoneApi {
 
   setupZonesWithMap(mapGroups) {
     fetch(this.baseUrl)
-    .then(res => res.json())
+    .then(res => {
+      if(!res.ok) {throw res}
+      return res.json()
+    })
     .then(data => {
       data.forEach(zoneData => {
         const zone = new Zone(zoneData);
@@ -13,6 +16,10 @@ class ZoneApi {
       mapGroups.forEach(group => {
         new MapZone(group);
       })
+    })
+    .catch(error => {
+      alert("Unable to process request. Please try again.");
+      console.log(error.message);
     })
   }
 }

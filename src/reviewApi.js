@@ -36,13 +36,16 @@ class ReviewApi {
     }
 
     fetch(this.baseUrl, configObj)
-    .then(res => res.json())
+    .then(res => {
+      if(!res.ok) {throw res}
+      return res.json()
+    })
     .then(data => {
       new Review(data)
       Review.handleSuccessfulReview();
     })
     .catch(error => {
-      alert("Unable to process request");
+      alert("Unable to process request. Please try again.");
       console.log(error.message);
     })
   }
