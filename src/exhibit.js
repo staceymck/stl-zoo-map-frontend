@@ -1,7 +1,7 @@
 class Exhibit {
 
   static all = [];
-  static exhibitContainer = document.querySelector("#exhibit-card-container");
+  static exhibitContainer = document.querySelector(".exhibit-card-container");
 
   constructor({id, name, description, zone_id, exhibit_image, species_fact}) {
     this.id = id;

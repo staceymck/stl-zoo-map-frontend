@@ -26,13 +26,13 @@ class MapZone {
     zoneInfo.attachToDom();
 
     //Display exhibits
-    document.querySelector("#exhibits").style.display = "block"
-    document.querySelector("#exhibit-card-container").innerHTML = "";
+    document.querySelector(".exhibits").style.display = "block"
+    document.querySelector(".exhibit-card-container").innerHTML = "";
 
     const exhibits = Exhibit.all.filter(exhibit => parseInt(this.zoneId, 10) === exhibit.zoneId);
     exhibits.forEach(e => e.attachToDom());
 
     //Display button to get to top of page
-    document.querySelector("#to-top").style.display = "block";
+    document.querySelector(".to-top").style.display = "block";
   }   
 }

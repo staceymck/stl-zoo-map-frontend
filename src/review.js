@@ -1,8 +1,8 @@
 class Review {
 
   static all = [];
-  static reviewContainer = document.querySelector("#review-card-container");
-  static reviewModal = document.querySelector("#review-modal");
+  static reviewContainer = document.querySelector(".review-card-container");
+  static reviewModal = document.querySelector(".review-modal");
 
   constructor({id, username, content, review_image, rating, created_at}) {
     this.id = id;
@@ -94,19 +94,19 @@ class Review {
       Review.renderReviews(sortFilter);
     }
 
-    document.querySelector("#exhibits").style.display = "none";
-    document.querySelector("#reviews").style.display = "block";
-    document.querySelector("#main-display").style.display = "none";
-    document.querySelector("#to-top").style.display = "block";
+    document.querySelector(".exhibits").style.display = "none";
+    document.querySelector(".reviews").style.display = "block";
+    document.querySelector(".main-display").style.display = "none";
+    document.querySelector(".to-top").style.display = "block";
   }
 
   static handleClick = (e) => {
-    if (e.target === document.querySelector("#add-review")) {
+    if (e.target === document.querySelector(".add-review")) {
       Review.reviewModal.style.display = "block";
       Review.renderModalContent();
     } else if (e.target === document.querySelector("#close-review-modal")) {
       Review.reviewModal.style.display = "none";
-    } else if (e.target === document.querySelector("#highest-rating")) {
+    } else if (e.target === document.querySelector(".highest-rating")) {
       Review.displayReviews("highest-rating");
     } else if (e.target === document.querySelector("#lowest-rating")) {
       Review.displayReviews("lowest-rating");

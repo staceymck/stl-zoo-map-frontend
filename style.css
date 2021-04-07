@@ -82,7 +82,7 @@ nav {
   padding: 0% 10% 2% 10%; 
 }
 
-#logo img {
+.logo img {
   height: 90px;
   padding-right: 2rem;
   cursor: pointer;
@@ -92,18 +92,18 @@ nav span {
   margin: 0;
 }
 
-#site-name {
+.site-name {
   font-size: 1.75rem;
   font-weight: 800;
   display: block;
 }
 
-#site-subtitle {
+.site-subtitle {
   font-size: 1rem;
   font-weight: 300;
 }
 
-nav #site-subtitle span {
+nav .site-subtitle span {
   padding-left: .5rem;
 }
 
@@ -140,7 +140,7 @@ nav #site-subtitle span {
   background-color: var(--gray-primary);
 }
 
-#to-top-btn {
+.to-top-btn {
   cursor: pointer;
   background: none;
   border: none;
@@ -151,17 +151,15 @@ nav #site-subtitle span {
   transition-duration: 0.2s;
 }
 
-#to-top-btn:hover {
+.to-top-btn:hover {
   color: var(--gray-dark);
 }
 
-#to-top {
+.to-top {
   display: none;
   padding: 0 10% 0 10%;
   text-align: right;
 }
-
-
 
 /* Map */
 #map {
@@ -212,44 +210,44 @@ nav #site-subtitle span {
 }
 
 /* Main Display - Home View */
-#main-display {
+.main-display {
   display: grid;
   grid-template-columns: 2fr 3fr;
   grid-template-rows: minmax(20vh, 50vh);
   column-gap: 1rem;
 }
 
-#main-display img {
+.main-display img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: 0% 10%;
 }
 
-#main-display #map {
+.main-display #map {
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
 }
 
-#main-display #map svg {
+.main-display #map svg {
   width: 100%;
   height: 100%;
 }
 
-#main-display #zone-info {
+.main-display .zone-info {
   display: none;
 }
 
 /* Main Display - Selected Zone View */
-#main-display.zone-selected {
+.main-display.zone-selected {
   padding-left: 10%;
   grid-template-columns: 1fr 2fr;
   grid-template-rows: minmax(20vh, 360px);
 }
 
-#main-display.zone-selected #zone-info {
+.main-display.zone-selected .zone-info {
   overflow-y: scroll;
   display: block;
   color: #fff;
@@ -257,22 +255,22 @@ nav #site-subtitle span {
   padding: .25rem 2rem .25rem 200rem;
 }
 
-#zone-info h2 {
+.zone-info h2 {
   font-size: 1.25rem;
   font-weight: 500;
 }
 
-#main-display.zone-selected img {
+.main-display.zone-selected img {
   display: none;
 }
 
 /* Exhibit Container Display */
-#exhibits {
+.exhibits {
   display: none;
   padding: 1% 10% 2% 10%;
 }
 
-#exhibits h3 {
+.exhibits h3 {
   font-size: 2rem;
   font-weight: 300;
   margin-top: 1rem;
@@ -283,7 +281,7 @@ nav #site-subtitle span {
 }
 
 /* Exhibit Cards */
-#exhibit-card-container {
+.exhibit-card-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-template-rows: auto;
@@ -314,12 +312,12 @@ nav #site-subtitle span {
 }
 
 /* Reviews */
-#reviews {
+.reviews {
   display: none;
   padding: 1% 10% 2% 10%;
 }
 
-#review-card-container {
+.review-card-container {
   display: flex;
   flex-direction: column;
   row-gap: 1.5rem;
@@ -417,7 +415,7 @@ form {
     text-align: center;
   }
 
-  #logo img {
+  .logo img {
     padding: initial;
   }
 
@@ -426,20 +424,20 @@ form {
     font-size: .8rem;
   }
 
-  #main-display.zone-selected {
+  .main-display.zone-selected {
     padding: initial;
   }
 
-  #main-display.zone-selected #zone-info {
+  .main-display.zone-selected .zone-info {
     margin: initial;
     padding: 1rem;
   }
 
-  #exhibits h3 {
+  .exhibits h3 {
     text-align: center;
   }
 
-  #zone-info ul {
+  .zone-info ul {
     padding-left: 1.25rem;
   }
   

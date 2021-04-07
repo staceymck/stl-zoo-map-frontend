@@ -15,30 +15,31 @@
   <div class="page-container">
 
     <nav>
-      <div id="logo">
+      <div class="logo">
         <img src="images/logo.png" alt="logo"> <!--would making this a button be more accessible since it has an action attached?-->
       </div>
       <div>
-        <span id="site-name" tabIndex="-1">ST. LOUIS ZOO VIRTUAL MAP</span>
-        <span id="site-subtitle">Select a zone to explore
+        <span class="site-name" tabIndex="-1">ST. LOUIS ZOO VIRTUAL MAP</span>
+        <span class="site-subtitle">Select a zone to explore
           <span> | </span>
-          <span><button id="view-reviews" class="text-button">Reviews</button></span>
+          <span><button class="view-reviews text-button">Reviews</button></span>
         </span>
       </div>
     </nav>
 
-    <div id="reviews">
+    <div class="reviews">
       <div class="flex-row">
         <h1>Reviews</h1>
-        <button id="add-review" class="button-primary">Add a review</button>
+        <button class="add-review button-primary">Add a review</button>
       </div>
-      <span>Sort by rating: </span><button id="highest-rating" class="text-button">Highest</button><span> | </span><button id="lowest-rating" class="text-button">Lowest</button>
-      <div id="review-modal" class="modal">
+      <span>Sort by rating: </span><button class="highest-rating text-button">Highest</button><span> | </span><button id="lowest-rating" class="text-button">Lowest</button>
+      <div class="review-modal modal"> <!--fix this with js class for review-modal-->
       </div>
-      <div id="review-card-container"></div>
+      <div class="review-card-container"></div>
     </div>
-    <div id="main-display">
-      <div id="zone-info">
+
+    <div class="main-display">
+      <div class="zone-info">
       </div>
       <img src="images/red-panda-main.jpg" alt="red panda">
       <div id="map">
@@ -86,15 +87,16 @@
       </div>
     </div>
     
-    <div id="exhibits">
+    <div class="exhibits">
       <h3>Meet the animals <i class="fas fa-chevron-down"></i></h3>
-      <div id="exhibit-card-container"></div>
+      <div class="exhibit-card-container"></div>
     </div>
-    <div id="to-top">
-      <button id="to-top-btn" aria-label="Scroll to top">
+    <div class="to-top">
+      <button class="to-top-btn" aria-label="Scroll to top">
         <i class="fa fa-chevron-circle-up" aria-hidden="true" title="Scroll to top of page"></i>
       </button>
     </div>
+    
     <div class="push"></div>
 
   </div>

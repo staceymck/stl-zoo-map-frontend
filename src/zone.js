@@ -1,5 +1,5 @@
 class Zone {
-  static container = document.querySelector("#zone-info");
+  static container = document.querySelector(".zone-info");
   static all = [];
 
   constructor({id, name, description}) {
