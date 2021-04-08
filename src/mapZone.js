@@ -4,8 +4,8 @@ class MapZone {
   static mapContainer = document.querySelector(".js-map");
 
   constructor(mapGroup) {
-    this.element = document.querySelector(`#${mapGroup.id} .map-zone`)
-    this.name = this.element.parentElement.id;
+    this.element = mapGroup.querySelector(".js-map-zone");
+    //this.name = this.element.parentElement.id;
     this.zoneId = this.element.dataset["id"];
 
     this.element.parentElement.addEventListener('click', this.handleClick);
@@ -13,14 +13,14 @@ class MapZone {
     MapZone.all.push(this);
   }
 
-  handleClick = (e) => {
+  handleClick = () => { //had e here but don't think I need it
     MapZone.all.forEach(zone => {
-      zone.element.classList.add("inactive");
-      zone.element.classList.remove("active");
+      zone.element.classList.add("js-inactive");
+      zone.element.classList.remove("js-active");
     });
 
-    this.element.classList.remove("inactive");
-    this.element.classList.add("active")
+    this.element.classList.remove("js-inactive");
+    this.element.classList.add("js-active")
 
     const zoneInfo = Zone.all.find(zone => parseInt(this.zoneId, 10) === zone.id);
     zoneInfo.attachToDom();
