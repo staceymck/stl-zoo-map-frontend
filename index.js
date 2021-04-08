@@ -2,6 +2,7 @@ const port = "http://localhost:3000";
 const zoneApi = new ZoneApi(port);
 const attractionApi = new AttractionApi(port);
 const exhibitApi = new ExhibitApi(port);
+const reviewApi = new ReviewApi(port);
 
 const logo = document.querySelector(".js-logo");
 const mainDisplay = document.querySelector(".js-main-display");
@@ -16,7 +17,7 @@ zoneApi.setupZonesWithMap(mapGroups);
 exhibitApi.getExhibits();
 
 // Reset page to home view on logo click
-renderHomeView = () => {
+const renderHomeView = () => {
   MapZone.all.forEach(zone => zone.element.classList.remove("inactive"));
   mainDisplay.classList.remove("zone-selected")
   
@@ -28,17 +29,38 @@ renderHomeView = () => {
 }
 
 //Set event listeners on already-present DOM elements
-viewReviewsButton.addEventListener("click", Review.displayReviews);
+viewReviewsButton.addEventListener("click", reviewApi.getReviews);
 reviewsContainer.addEventListener("click", Review.handleClick);
 logo.addEventListener('click', renderHomeView);
 
-toTopIcon.addEventListener("click", (e) => {
+const scrollUp = (focusElement) => {
   window.scroll({
     top: 0,
     left: 0,
     behavior: 'smooth'
   })
   setTimeout(() => {
-    document.querySelector(".js-site-name").focus()
-  }, 2000)
+    focusElement.focus()
+  }, 1000)
+}
+
+toTopIcon.addEventListener("click", () => {
+  scrollUp(document.querySelector(".js-site-name"));
 })
+
+
+//Display Toggle
+
+// const toggleVisibility = (element, visibleStyle) => {
+//   if (element.style.display === "none") {
+//     element.style.display === visibleStyle;
+//   } else {
+//     element.style.display === "none";
+//   }
+// }
+
+
+
+
+
+
