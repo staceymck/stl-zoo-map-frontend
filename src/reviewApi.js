@@ -4,7 +4,7 @@ class ReviewApi {
     this.baseUrl = `${port}/reviews`
   }
 
-  getReviews = (params) => {
+  getReviews = (params = {query: "", page: ""}) => {
     let page = "";
     let query = "";
 
@@ -22,7 +22,7 @@ class ReviewApi {
       url = url + query
     }    
 
-    //console.log(url)
+    console.log(url)
     fetch(url)
     .then(resp => resp.json())
     .then(data => {
