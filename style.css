@@ -140,6 +140,14 @@ nav .site-subtitle span {
   background-color: var(--gray-primary);
 }
 
+.pagination-btns {
+  padding-top: 1rem;
+}
+
+.pagination-btns button {
+  display: inline-block;
+}
+
 .to-top-btn {
   cursor: pointer;
   background: none;
@@ -368,7 +376,6 @@ nav .site-subtitle span {
 }
 
 .modal {
-  display: none;
   text-align: center;
   height: 100%;
   width: 100%;
@@ -379,6 +386,10 @@ nav .site-subtitle span {
   left: 0;
   top: 0;
   background-color: rgba(0,0,0,0.4); 
+}
+
+.js-modal {
+  display: none;
 }
 
 .modal-content {
