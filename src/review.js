@@ -4,6 +4,9 @@ class Review {
   static reviewContainer = document.querySelector(".js-review-card-container");
   static reviewModal = document.querySelector(".js-modal");
   static reviewPgTitle = document.querySelector(".js-reviews-header");
+  
+  static hiLoSortBtn = document.querySelector(".js-sort-high-low");
+  static loHiSortBtn = document.querySelector(".js-sort-low-high")
 
   static params = {query: "", page: ""};
   static lastPg = ""
@@ -24,7 +27,7 @@ class Review {
     this.created_at = created_at;
     this.formattedDateTime = Review.formatDateTime(created_at);
 
-    this.element = document.createElement('div');
+    this.element = document.createElement('article');
     this.element.classList.add("review-card");
     Review.all.push(this);
   }
@@ -108,10 +111,12 @@ class Review {
   }
 
   static handleSortablePagination = (target) => {
-    if (target === document.querySelector(".js-sort-high-low")) {
+    if (target === Review.hiLoSortBtn) {
       Review.params = {query: "hi-lo", page: 1}
-    } else if (target === document.querySelector(".js-sort-low-high")) {
+      Review.setSelectedQuery(target);
+    } else if (target === Review.loHiSortBtn) {
       Review.params = {query: "lo-hi", page: 1}
+      Review.setSelectedQuery(target);
     } else if (document.querySelector(".js-pagination-btns").contains(target)) {
         if (target === Review.firstPgBtn) {
           Review.params["page"] = 1;
@@ -127,8 +132,18 @@ class Review {
     reviewApi.getReviews(Review.params);
   }
 
+  static setSelectedQuery = (clickTarget) => {
+    document.querySelectorAll(".js-sort-btns button").forEach(btn => {
+      if (clickTarget === btn) {
+        btn.classList.add("js-selected-query");
+      } else {
+        btn.classList.remove("js-selected-query");
+      }
+    })
+  }
+
   static setPaginationBtns = (pageData) => {
-    console.log(pageData)
+    //console.log(pageData)
     Review.currentPg = pageData.current_page;
     Review.prevPg = pageData.prev_page;
     Review.lastPg = pageData.total_pages;

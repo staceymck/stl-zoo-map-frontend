@@ -427,6 +427,11 @@ form {
   color: var(--gray-dark);
 }
 
+.js-selected-query {
+  font-weight: 800;
+  text-decoration: underline;
+}
+
 /* Smaller Screens */
 @media (max-width: 620px) {
 

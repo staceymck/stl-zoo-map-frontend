@@ -29,7 +29,11 @@ const renderHomeView = () => {
 }
 
 //Set event listeners on already-present DOM elements
-viewReviewsButton.addEventListener("click", reviewApi.getReviews);
+viewReviewsButton.addEventListener("click", (e) => {
+  Review.setSelectedQuery(e.target);
+  reviewApi.getReviews()
+});
+
 reviewsContainer.addEventListener("click", Review.handleClick);
 logo.addEventListener('click', renderHomeView);
 
