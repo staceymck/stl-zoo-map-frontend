@@ -325,6 +325,10 @@ nav .site-subtitle span {
   font-weight: 400;
 }
 
+.exhibit-card p {
+  margin-bottom: .5rem;
+}
+
 /* Reviews */
 .reviews {
   padding: 1% 10% 2% 10%;
