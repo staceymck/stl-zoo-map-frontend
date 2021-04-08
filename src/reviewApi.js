@@ -4,11 +4,33 @@ class ReviewApi {
     this.baseUrl = `${port}/reviews`
   }
 
-  getReviews = () => {
-    fetch(this.baseUrl)
+  getReviews = (params) => {
+    let page = "";
+    let query = "";
+
+    if (params.page) {page = "page=" + params['page']}
+    if (params.query) {query = "q=" + params['query']}
+
+    let url = this.baseUrl;
+    if (page || query) {url = url + "?"};
+
+    if (page && query) {
+      url = url + page + "&" + query
+    } else if (page) {
+      url = url + page
+    } else if (query) { //worked as 'url' too
+      url = url + query
+    }    
+
+    //console.log(url)
+    fetch(url)
     .then(resp => resp.json())
     .then(data => {
-      data.forEach(reviewData => {
+      //console.log(data)
+      Review.setPaginationBtns(data["metadata"]);
+
+      Review.all = []
+      data["reviews"].forEach(reviewData => {
         const r = new Review(reviewData);
         Review.displayReviews();
       })
