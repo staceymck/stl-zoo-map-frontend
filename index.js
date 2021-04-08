@@ -18,8 +18,11 @@ exhibitApi.getExhibits();
 
 // Reset page to home view on logo click
 const renderHomeView = () => {
-  MapZone.all.forEach(zone => zone.element.classList.remove("inactive"));
-  mainDisplay.classList.remove("zone-selected")
+  MapZone.all.forEach(zone => {
+    zone.element.classList.remove("js-inactive");
+    zone.element.classList.remove("js-active");
+  });
+  mainDisplay.classList.remove("zone-selected");
   
   mainDisplay.style.display = "";
   document.querySelector(".js-reviews").style.display = "none";
