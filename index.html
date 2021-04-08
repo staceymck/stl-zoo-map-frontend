@@ -29,13 +29,23 @@
 
     <div class="reviews js-reviews">
       <div class="flex-row">
-        <h1>Reviews</h1>
+        <h1 class="js-reviews-header" tabIndex="-1">Reviews</h1>
         <button class="js-add-review-btn button-primary">Add a review</button>
       </div>
-      <span>Sort by rating: </span><button class="js-sort-high-low text-button">Highest</button><span> | </span><button class="js-sort-low-high text-button">Lowest</button>
+      <span>Sort by rating: </span><button class="text-button js-sort-high-low js-fetch ">Highest</button><span> | </span><button class="text-button js-fetch js-sort-low-high">Lowest</button>
       <div class="js-modal modal">
       </div>
-      <div class="review-card-container js-review-card-container"></div>
+      <div class="review-card-container js-review-card-container js-fetch"></div>
+      <div class="pagination-btns js-pagination-btns">
+        <button class="button-primary js-first-pg-btn js-fetch">1</button>
+        <button class="button-primary js-prev-pg-btn js-fetch">
+          <i class="fa fa-angle-double-left js-fetch" aria-hidden="true" title="Previous page"></i>
+        </button>
+        <button class="button-primary js-next-pg-btn js-fetch">
+          <i class="fa fa-angle-double-right js-fetch" aria-hidden="true" title="Next page"></i>
+        </button>
+        <button class="button-primary js-last-pg-btn js-fetch">Last</button>
+      </div>
     </div>
 
     <div class="main-display js-main-display">
