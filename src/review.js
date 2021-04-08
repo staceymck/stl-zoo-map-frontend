@@ -3,6 +3,17 @@ class Review {
   static all = [];
   static reviewContainer = document.querySelector(".js-review-card-container");
   static reviewModal = document.querySelector(".js-modal");
+  static reviewPgTitle = document.querySelector(".js-reviews-header");
+
+  static params = {query: "", page: ""};
+  static lastPg = ""
+  static nextPg = ""
+  static prevPg = ""
+
+  static firstPgBtn = document.querySelector(".js-first-pg-btn");
+  static lastPgBtn = document.querySelector(".js-last-pg-btn");
+  static nextPgBtn = document.querySelector(".js-next-pg-btn");
+  static prevPgBtn = document.querySelector(".js-prev-pg-btn");
 
   constructor({id, username, content, review_image, rating, created_at}) {
     this.id = id;
@@ -71,28 +82,13 @@ class Review {
     Review.reviewContainer.appendChild(this.element)
   }
 
-  static renderReviews = (sortFilter) => {
-    if (sortFilter === "highest-rating") {
-      const sortedAll = Review.all.sort((a, b) => b.rating - a.rating);
-      sortedAll.forEach(review => review.attachToDom());
-    } else if(sortFilter === "lowest-rating") {
-      const sortedAll = Review.all.sort((a, b) => a.rating - b.rating);
-      sortedAll.forEach(review => review.attachToDom());
-    } else {
-      const sortedAll = Review.all.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
-      sortedAll.forEach(review => review.attachToDom());
-    } 
-  }
+  static attachReviewsToDom = () => {
+    Review.all.forEach(review => review.attachToDom());
+  } 
 
-  static displayReviews = (sortFilter) => {
+  static displayReviews = (params) => {
     Review.reviewContainer.innerHTML = "";
-
-    if(Review.all.length === 0) {
-      const reviewApi = new ReviewApi(port)
-      reviewApi.getReviews();
-    } else {
-      Review.renderReviews(sortFilter);
-    }
+    Review.attachReviewsToDom();
 
     document.querySelector(".js-exhibits").style.display = "none";
     document.querySelector(".js-reviews").style.display = "block";
@@ -106,11 +102,42 @@ class Review {
       Review.renderModalContent();
     } else if (e.target === document.querySelector(".js-close-modal")) {
       Review.reviewModal.style.display = "none";
-    } else if (e.target === document.querySelector(".js-sort-high-low")) {
-      Review.displayReviews("highest-rating");
-    } else if (e.target === document.querySelector(".js-sort-low-high")) {
-      Review.displayReviews("lowest-rating");
+    } else if (e.target.classList.contains("js-fetch")) {
+        Review.handleSortablePagination(e.target);
     }
+  }
+
+  static handleSortablePagination = (target) => {
+    if (target === document.querySelector(".js-sort-high-low")) {
+      Review.params = {query: "hi-lo", page: 1}
+    } else if (target === document.querySelector(".js-sort-low-high")) {
+      Review.params = {query: "lo-hi", page: 1}
+    } else if (document.querySelector(".js-pagination-btns").contains(target)) {
+        if (target === Review.firstPgBtn) {
+          Review.params["page"] = 1;
+        } else if (target === Review.lastPgBtn) {
+          Review.params["page"] = Review.lastPg;
+        } else if (target === Review.prevPgBtn || target === Review.prevPgBtn.firstElementChild) {
+          Review.params["page"] = Review.prevPg;
+        } else if (target === Review.nextPgBtn || target === Review.nextPgBtn.firstElementChild) {
+          Review.params["page"] = Review.nextPg;
+        }
+        scrollUp(Review.reviewPgTitle);
+      }
+    reviewApi.getReviews(Review.params);
+  }
+
+  static setPaginationBtns = (pageData) => {
+    console.log(pageData)
+    Review.currentPg = pageData.current_page;
+    Review.prevPg = pageData.prev_page;
+    Review.lastPg = pageData.total_pages;
+    Review.nextPg = pageData.next_page;
+
+    (Review.prevPg === 1 || Review.currentPg === 1) ? Review.firstPgBtn.style.display = "none" : Review.firstPgBtn.style.display = "inline-block";
+    Review.prevPg ? Review.prevPgBtn.style.display = "inline-block" : Review.prevPgBtn.style.display = "none";
+    Review.nextPg ? Review.nextPgBtn.style.display = "inline-block" : Review.nextPgBtn.style.display = "none";
+    Review.lastPg.to_i <= 2 ? Review.lastPgBtn.style.display = "inline-block" : Review.lastPgBtn.style.display = "none";
   }
 
   static handleSubmit = (e) => {
@@ -166,8 +193,8 @@ class Review {
     modalContent.appendChild(successMsg);
     setTimeout(() => {
       Review.reviewModal.style.display = "none";
-      Review.displayReviews();
-    }, 3000)
+      reviewApi.getReviews({query: "", page: 1});
+    }, 2000)
   }
 }
 
