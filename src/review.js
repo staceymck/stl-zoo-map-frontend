@@ -143,7 +143,6 @@ class Review {
   }
 
   static setPaginationBtns = (pageData) => {
-    //console.log(pageData)
     Review.currentPg = pageData.current_page;
     Review.prevPg = pageData.prev_page;
     Review.lastPg = pageData.total_pages;

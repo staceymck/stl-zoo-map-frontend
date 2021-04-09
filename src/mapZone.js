@@ -23,7 +23,7 @@ class MapZone {
     this.path.classList.remove("js-hover");
   }
 
-  handleClick = () => { //had e here but don't think I need it
+  handleClick = () => {
     MapZone.all.forEach(zone => {
       zone.path.classList.add("js-inactive");
       zone.path.classList.remove("js-active");

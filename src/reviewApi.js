@@ -22,11 +22,9 @@ class ReviewApi {
       url = url + query
     }    
 
-    console.log(url)
     fetch(url)
     .then(resp => resp.json())
     .then(data => {
-      //console.log(data)
       Review.setPaginationBtns(data["metadata"]);
 
       Review.all = []

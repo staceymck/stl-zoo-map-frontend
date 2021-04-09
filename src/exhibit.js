@@ -13,14 +13,13 @@ class Exhibit {
 
     this.element = document.createElement("div");
     this.element.classList.add("exhibit-card");
-    this.element.id = `exhibit-${id}`
 
     this.element.addEventListener("click", this.handleClick);
 
     Exhibit.all.push(this);
   }
 
-  render() { //figure out alt text for already loaded images and user submitted images 
+  render() {
     //create image
     const img = document.createElement("img");
     img.src = this.imageLink;

@@ -1,6 +1,7 @@
 class Zone {
-  static container = document.querySelector(".js-zone-info");
+
   static all = [];
+  static container = document.querySelector(".js-zone-info");
 
   constructor({id, name, description}) {
     this.id = id;
