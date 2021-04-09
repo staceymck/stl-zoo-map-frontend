@@ -4,23 +4,33 @@ class MapZone {
   static mapContainer = document.querySelector(".js-map");
 
   constructor(mapGroup) {
-    this.element = mapGroup.querySelector(".js-map-zone");
-    //this.name = this.element.parentElement.id;
-    this.zoneId = this.element.dataset["id"];
+    this.element = mapGroup;
+    this.path = mapGroup.querySelector(".js-map-zone");
+    this.zoneId = this.path.dataset["id"];
 
-    this.element.parentElement.addEventListener('click', this.handleClick);
+    this.element.addEventListener('click', this.handleClick);
+    this.element.addEventListener('mouseenter', this.handleMouseEnter);
+    this.element.addEventListener('mouseleave', this.handleMouseLeave);
 
     MapZone.all.push(this);
   }
 
+  handleMouseEnter = () => {
+    this.path.classList.add("js-hover");
+  }
+  
+  handleMouseLeave = () => {
+    this.path.classList.remove("js-hover");
+  }
+
   handleClick = () => { //had e here but don't think I need it
     MapZone.all.forEach(zone => {
-      zone.element.classList.add("js-inactive");
-      zone.element.classList.remove("js-active");
+      zone.path.classList.add("js-inactive");
+      zone.path.classList.remove("js-active");
     });
 
-    this.element.classList.remove("js-inactive");
-    this.element.classList.add("js-active")
+    this.path.classList.remove("js-inactive");
+    this.path.classList.add("js-active")
 
     const zoneInfo = Zone.all.find(zone => parseInt(this.zoneId, 10) === zone.id);
     zoneInfo.attachToDom();
