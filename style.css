@@ -173,49 +173,49 @@ nav .site-subtitle span {
 }
 
 /* Map */
-#map {
+.map {
   background-color: var(--gray-light);
   width: auto;
   padding: 3% 10%; 
 }
 
-#map svg {
+.map svg {
   cursor: pointer;
 }
 
-#map svg .inactive {
+.map svg .js-inactive {
   fill: var(--gray-primary);
 }
 
-#rivers-edge:not(.active):hover {
+.rivers-edge:not(.js-active):hover {
   fill: var(--rivers-edge-dark);
 }
 
-#red-rocks:not(.active):hover {
+.red-rocks:not(.js-active):hover {
   fill: var(--red-rocks-dark);
 }
 
-#discovery-corner:not(.active):hover {
+.discovery-corner:not(.js-active):hover {
   fill: var(--discovery-corner-dark);
 }
 
-#the-wild:not(.active):hover {
+.the-wild:not(.js-active):hover {
   fill: var(--the-wild-dark);
 }
 
-#lakeside-crossing:not(.active):hover {
+.lakeside-crossing:not(.js-active):hover {
   fill: var(--lakeside-crossing-dark);
 }
 
-#historic-hill:not(.active):hover {
+.historic-hill:not(.js-active):hover {
   fill: var(--historic-hill-dark);
 }
 
-#map .map-zone.inactive:hover {
+.map-zone.js-inactive:hover {
   fill: var(--gray-dark);
 }
 
-#map .map-zone:not(.active):hover  {
+.map-zone:not(.js-active):hover  {
   stroke: var(--gray-light);
   stroke-width: .3rem;
 }
@@ -235,14 +235,14 @@ nav .site-subtitle span {
   object-position: 0% 10%;
 }
 
-.main-display #map {
+.main-display .map {
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
 }
 
-.main-display #map svg {
+.main-display .map svg {
   width: 100%;
   height: 100%;
 }
