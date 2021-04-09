@@ -27,4 +27,4 @@ The map SVG was developed using data made available through [© OpenStreetMap co
 Photos are public domain images from [Unsplash](https://unsplash.com/) and [Pexels](https://www.pexels.com/).
 
 ## License
-As the included map uses data provided via OpenStreetMap, any use or adaption of the map SVG must comply with the [Creative Commons Attribution-ShareAlike 2.0 license](https://creativecommons.org/licenses/by-sa/2.0/) (CC BY-SA 2.0). This app is just intended as a demo, not to be set up as a live review site of the St. Louis Zoo.
+As the included map uses data provided via OpenStreetMap, any use or adaption of the map SVG must comply with the [Creative Commons Attribution-ShareAlike 2.0 license](https://creativecommons.org/licenses/by-sa/2.0/) (CC BY-SA 2.0). This app is just intended as a demo and learning experience, not to be set up as a live review site of the St. Louis Zoo.
