@@ -183,39 +183,39 @@ nav .site-subtitle span {
   cursor: pointer;
 }
 
-.map svg .js-inactive {
+.map .js-inactive {
   fill: var(--gray-primary);
 }
 
-.rivers-edge:not(.js-active):hover {
+.rivers-edge.js-hover:not(.js-active) {
   fill: var(--rivers-edge-dark);
 }
 
-.red-rocks:not(.js-active):hover {
-  fill: var(--red-rocks-dark);
-}
-
-.discovery-corner:not(.js-active):hover {
-  fill: var(--discovery-corner-dark);
-}
-
-.the-wild:not(.js-active):hover {
-  fill: var(--the-wild-dark);
-}
-
-.lakeside-crossing:not(.js-active):hover {
-  fill: var(--lakeside-crossing-dark);
-}
-
-.historic-hill:not(.js-active):hover {
+.historic-hill.js-hover:not(.js-active) {
   fill: var(--historic-hill-dark);
 }
 
-.map-zone.js-inactive:hover {
+.lakeside-crossing.js-hover:not(.js-active) {
+  fill: var(--lakeside-crossing-dark);
+}
+
+.red-rocks.js-hover:not(.js-active) {
+  fill: var(--red-rocks-dark);
+}
+
+.discovery-corner.js-hover:not(.js-active) {
+  fill: var(--discovery-corner-dark);
+}
+
+.the-wild.js-hover:not(.js-active) {
+  fill: var(--the-wild-dark);
+}
+
+.map .js-hover.js-inactive {
   fill: var(--gray-dark);
 }
 
-.map-zone:not(.js-active):hover  {
+.js-hover:not(.js-active)  {
   stroke: var(--gray-light);
   stroke-width: .3rem;
 }
