@@ -19,8 +19,8 @@ exhibitApi.getExhibits();
 // Reset page to home view on logo click
 const renderHomeView = () => {
   MapZone.all.forEach(zone => {
-    zone.element.classList.remove("js-inactive");
-    zone.element.classList.remove("js-active");
+    zone.path.classList.remove("js-inactive");
+    zone.path.classList.remove("js-active");
   });
   mainDisplay.classList.remove("zone-selected");
   
@@ -54,17 +54,6 @@ const scrollUp = (focusElement) => {
 toTopIcon.addEventListener("click", () => {
   scrollUp(document.querySelector(".js-site-name"));
 })
-
-
-//Display Toggle
-
-// const toggleVisibility = (element, visibleStyle) => {
-//   if (element.style.display === "none") {
-//     element.style.display === visibleStyle;
-//   } else {
-//     element.style.display === "none";
-//   }
-// }
 
 
 
