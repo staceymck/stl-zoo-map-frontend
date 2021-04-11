@@ -34,7 +34,7 @@ class Review {
 
   static formatDateTime = (dateTime) => {
     const d = new Date(dateTime);
-    const formattedDateTime = d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + " - " + d.toLocaleDateString();
+    const formattedDateTime = d.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' }) + " - " + d.toLocaleDateString();
     return formattedDateTime;
   }
 
