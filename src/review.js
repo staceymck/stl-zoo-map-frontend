@@ -174,9 +174,9 @@ class Review {
         <div class="grid">
           <div>
             <label for="username">Display name:*</label><br>
-            <input type="text" name="username" id="review-username" required><br>
+            <input type="text" name="username" class="js-review-username" required><br>
             <label for="rating">Rating:*</label><br>
-            <select name="rating" id="review-rating" required>
+            <select name="rating" class="js-review-rating" required>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -184,11 +184,11 @@ class Review {
               <option value="5">5</option>
             </select>
             <label for="image">Upload image:</label><br>
-            <input type="file" name="image" accept="image/jpeg, image/png" id="review-image"><br>
+            <input type="file" name="image" accept="image/jpeg, image/png" class="js-review-image"><br>
           </div>
           <div>
             <label for="content">Share your experience:*</label><br>
-            <textarea id="review-content" name="content" rows="10" cols="20" wrap="soft" maxlength="1000" placeholder="1000 character limit"required ></textarea><br>
+            <textarea class="js-review-content" name="content" rows="10" cols="20" wrap="soft" maxlength="1000" placeholder="1000 character limit"required ></textarea><br>
           </div>
         </div>
         <input type="submit" value="Save" class="button-primary">

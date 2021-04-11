@@ -36,12 +36,12 @@ class ReviewApi {
   }
 
   createReview = () => {
-    const imageFile = document.querySelector("#review-image").files[0];
+    const imageFile = document.querySelector(".js-review-image").files[0];
     
     const formData = new FormData();
-    formData.append('review[username]', document.querySelector("#review-username").value);
-    formData.append('review[rating]', document.querySelector("#review-rating").value);
-    formData.append('review[content]', document.querySelector("#review-content").value);
+    formData.append('review[username]', document.querySelector(".js-review-username").value);
+    formData.append('review[rating]', document.querySelector(".js-review-rating").value);
+    formData.append('review[content]', document.querySelector(".js-review-content").value);
     if(imageFile) {
       formData.append('review[image]', imageFile, imageFile.name); 
     }
