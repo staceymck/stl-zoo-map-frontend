@@ -44,7 +44,7 @@ class Exhibit {
     Exhibit.exhibitContainer.appendChild(this.element);
   }
 
-  handleClick = (e) => {
+  handleClick = () => {
     const card = this.element;
 
     if(card.classList.contains("js-front")) {
