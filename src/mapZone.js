@@ -30,13 +30,13 @@ class MapZone {
     });
 
     this.path.classList.remove("js-inactive");
-    this.path.classList.add("js-active")
+    this.path.classList.add("js-active");
 
     const zoneInfo = Zone.all.find(zone => parseInt(this.zoneId, 10) === zone.id);
     zoneInfo.attachToDom();
 
     //Display exhibits
-    document.querySelector(".js-exhibits").style.display = "block"
+    document.querySelector(".js-exhibits").style.display = "block";
     document.querySelector(".js-exhibit-card-container").innerHTML = "";
 
     const exhibits = Exhibit.all.filter(exhibit => parseInt(this.zoneId, 10) === exhibit.zoneId);

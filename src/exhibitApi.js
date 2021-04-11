@@ -1,14 +1,14 @@
 class ExhibitApi {
   
   constructor(port) {
-    this.baseUrl = `${port}/exhibits`
+    this.baseUrl = `${port}/exhibits`;
   }
 
   getExhibits = () => {
     fetch(this.baseUrl)
     .then(res => {
       if(!res.ok) {throw res}
-      return res.json()
+      return res.json();
     })
     .then(data => {
       data.forEach(exhibit => {

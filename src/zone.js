@@ -16,7 +16,7 @@ class Zone {
   }
 
   attractions() {
-    return Attraction.all.filter(att => parseInt(att.zoneId, 10) === this.id)
+    return Attraction.all.filter(att => parseInt(att.zoneId, 10) === this.id);
   }
 
   renderAttractionList(attractions) {
@@ -37,7 +37,7 @@ class Zone {
     Zone.container.parentElement.classList.add("zone-selected");
     Zone.container.innerHTML = "";
 
-    Zone.container.style.backgroundColor = `var(--${this.nameAsClass}-primary)`
+    Zone.container.style.backgroundColor = `var(--${this.nameAsClass}-primary)`;
 
     const name = document.createElement("h1");
     name.innerText = this.name;

@@ -6,12 +6,12 @@ class Review {
   static reviewPgTitle = document.querySelector(".js-reviews-header");
   
   static hiLoSortBtn = document.querySelector(".js-sort-high-low");
-  static loHiSortBtn = document.querySelector(".js-sort-low-high")
+  static loHiSortBtn = document.querySelector(".js-sort-low-high");
 
   static params = {query: "", page: ""};
-  static lastPg = ""
-  static nextPg = ""
-  static prevPg = ""
+  static lastPg = "";
+  static nextPg = "";
+  static prevPg = "";
 
   static firstPgBtn = document.querySelector(".js-first-pg-btn");
   static lastPgBtn = document.querySelector(".js-last-pg-btn");
@@ -46,8 +46,8 @@ class Review {
   displayRating() {
     const ratingDiv = document.createElement("div")
     for(let i=1; i <= 5; i++) {
-      const classStatus = (i <= this.rating) ? " checked" : ""
-      const icon = `<i class="fas fa-paw${classStatus}" title="${i}" value="${i}"></i>`
+      const classStatus = (i <= this.rating) ? " checked" : "";
+      const icon = `<i class="fas fa-paw${classStatus}" title="${i}" value="${i}"></i>`;
       ratingDiv.innerHTML += icon;
     }
     return ratingDiv;
@@ -82,14 +82,14 @@ class Review {
 
   attachToDom() {
     this.render();
-    Review.reviewContainer.appendChild(this.element)
+    Review.reviewContainer.appendChild(this.element);
   }
 
   static attachReviewsToDom = () => {
     Review.all.forEach(review => review.attachToDom());
   } 
 
-  static displayReviews = (params) => {
+  static displayReviews = () => {
     Review.reviewContainer.innerHTML = "";
     Review.attachReviewsToDom();
 
@@ -112,10 +112,10 @@ class Review {
 
   static handleSortablePagination = (target) => {
     if (target === Review.hiLoSortBtn) {
-      Review.params = {query: "hi-lo", page: 1}
+      Review.params = {query: "hi-lo", page: 1};
       Review.setSelectedQuery(target);
     } else if (target === Review.loHiSortBtn) {
-      Review.params = {query: "lo-hi", page: 1}
+      Review.params = {query: "lo-hi", page: 1};
       Review.setSelectedQuery(target);
     } else if (document.querySelector(".js-pagination-btns").contains(target)) {
         if (target === Review.firstPgBtn) {
@@ -139,7 +139,7 @@ class Review {
       } else {
         btn.classList.remove("js-selected-query");
       }
-    })
+    });
   }
 
   static setPaginationBtns = (pageData) => {
@@ -156,7 +156,7 @@ class Review {
 
   static handleSubmit = (e) => {
       e.preventDefault();
-      let reviewApi = new ReviewApi(port)
+      let reviewApi = new ReviewApi(port);
       reviewApi.createReview(e);
   }
 
@@ -193,7 +193,7 @@ class Review {
         </div>
         <input type="submit" value="Save" class="button-primary">
       </form>
-    `
+    `;
     Review.reviewModal.appendChild(modalContent);
     document.querySelector(".js-review-form").addEventListener("submit", Review.handleSubmit);
   }
@@ -208,7 +208,6 @@ class Review {
     setTimeout(() => {
       Review.reviewModal.style.display = "none";
       reviewApi.getReviews({query: "", page: 1});
-    }, 2000)
+    }, 2000);
   }
 }
-

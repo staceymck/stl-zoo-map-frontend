@@ -1,13 +1,13 @@
 class ZoneApi {
   constructor(port) {
-    this.baseUrl = `${port}/zones`
+    this.baseUrl = `${port}/zones`;
   }
 
   setupZonesWithMap(mapGroups) {
     fetch(this.baseUrl)
     .then(res => {
       if(!res.ok) {throw res}
-      return res.json()
+      return res.json();
     })
     .then(data => {
       data.forEach(zoneData => {

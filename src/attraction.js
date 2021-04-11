@@ -1,13 +1,13 @@
 class Attraction {
   
-  static all = []
+  static all = [];
 
   constructor({id, name, zone_id}) {
     this.id = id;
     this.name = name;
     this.zoneId = zone_id;
 
-    Attraction.all.push(this)
+    Attraction.all.push(this);
   }
 
   renderAsLi() {

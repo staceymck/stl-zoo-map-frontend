@@ -1,33 +1,33 @@
 class ReviewApi {
 
   constructor(port) {
-    this.baseUrl = `${port}/reviews`
+    this.baseUrl = `${port}/reviews`;
   }
 
   getReviews = (params = {query: "", page: ""}) => {
     let page = "";
     let query = "";
 
-    if (params.page) {page = "page=" + params['page']}
-    if (params.query) {query = "q=" + params['query']}
+    if (params.page) {page = "page=" + params['page']};
+    if (params.query) {query = "q=" + params['query']};
 
     let url = this.baseUrl;
     if (page || query) {url = url + "?"};
 
     if (page && query) {
-      url = url + page + "&" + query
+      url = url + page + "&" + query;
     } else if (page) {
-      url = url + page
-    } else if (query) { //worked as 'url' too
-      url = url + query
-    }    
+      url = url + page;
+    } else if (query) {
+      url = url + query;
+    }
 
     fetch(url)
     .then(resp => resp.json())
     .then(data => {
       Review.setPaginationBtns(data["metadata"]);
 
-      Review.all = []
+      Review.all = [];
       data["reviews"].forEach(reviewData => {
         const r = new Review(reviewData);
         Review.displayReviews();
@@ -58,7 +58,7 @@ class ReviewApi {
     fetch(this.baseUrl, configObj)
     .then(res => {
       if(!res.ok) {throw res}
-      return res.json()
+      return res.json();
     })
     .then(data => {
       new Review(data)
