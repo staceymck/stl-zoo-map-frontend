@@ -1,7 +1,7 @@
 # Virtual Zoo Map
 
 ## Description
-This repo serves as the frontend for a simple interactive map based on the St. Louis Zoo. Site visitors can click on map zones to view information about that zone's exhibits and attractions. 
+This repo serves as the frontend for a simple interactive map based on the St. Louis Zoo. Site visitors can click on map zones to view information about that zone's exhibits and attractions. [Watch demo](https://youtu.be/oFuOIL-6_yo)
 
 [Backend Repo](https://github.com/staceymck/stl-zoo-map-backend)
 
